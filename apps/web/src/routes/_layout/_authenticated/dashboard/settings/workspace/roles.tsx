@@ -362,7 +362,7 @@ function RouteComponent() {
                     value="__draft__"
                     className="border-b border-border last:border-b-0"
                   >
-                    <AccordionTrigger className="px-4">
+                    <AccordionTrigger className="min-w-0 px-4">
                       <div className="flex items-center gap-3.5 min-w-0">
                         <SettingsIconTile>
                           <Shield />
@@ -418,7 +418,7 @@ function RouteComponent() {
                       value={role.role}
                       className="border-b border-border last:border-b-0"
                     >
-                      <AccordionTrigger className="px-4">
+                      <AccordionTrigger className="min-w-0 px-4">
                         <div className="flex items-center justify-between gap-4 flex-1 min-w-0">
                           <div className="flex items-center gap-3.5 min-w-0">
                             <SettingsIconTile>

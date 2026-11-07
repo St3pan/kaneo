@@ -46,7 +46,7 @@ export function ExportTasksRow({ project }: ExportTasksRowProps) {
         type="button"
         variant="outline"
         size="sm"
-        className="w-24"
+        className="min-w-24"
         onClick={handleExport}
         disabled={isPending}
       >

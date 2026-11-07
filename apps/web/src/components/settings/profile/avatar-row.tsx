@@ -119,7 +119,7 @@ export function AvatarRow({
               type="button"
               variant="outline"
               size="sm"
-              className="w-24"
+              className="min-w-24"
               disabled={isBusy}
               onClick={() => inputRef.current?.click()}
             >

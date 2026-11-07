@@ -53,7 +53,7 @@ export function WorkspaceRuleRow({
                   workspaceName: workspace.name,
                 })
           }
-          className="w-24"
+          className="min-w-24"
           onClick={() => setOpen(true)}
           size="sm"
           type="button"

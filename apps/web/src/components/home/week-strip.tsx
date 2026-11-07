@@ -91,7 +91,7 @@ export function WeekStrip({ tasks, workspaceId }: WeekStripProps) {
                 >
                   <span
                     className={cn(
-                      "font-medium text-[11px]",
+                      "truncate font-medium text-[11px]",
                       day.isPast
                         ? "text-destructive-foreground"
                         : "text-muted-foreground",

@@ -82,7 +82,7 @@ export function InboxList({
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex h-12 shrink-0 items-center justify-between gap-2 border-border/60 border-b px-3">
+      <div className="@container flex h-12 shrink-0 items-center justify-between gap-2 border-border/60 border-b px-3">
         <fieldset className="inline-flex items-center gap-0.5 rounded-lg bg-muted/70 p-0.5">
           <legend className="sr-only">
             {t("notifications:inbox.filters.label")}
@@ -116,9 +116,12 @@ export function InboxList({
             disabled={unreadCount === 0}
             onClick={() => markAllAsRead()}
             className="text-muted-foreground"
+            title={t("common:actions.markAllRead")}
           >
             <CheckCheck />
-            {t("common:actions.markAllRead")}
+            <span className="@max-[24rem]:sr-only">
+              {t("common:actions.markAllRead")}
+            </span>
           </Button>
           <Button
             variant="ghost"

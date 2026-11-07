@@ -30,7 +30,7 @@ export function CopyFeedLinkButton({ url }: { url: string }) {
       type="button"
       variant="outline"
       size="sm"
-      className="w-24"
+      className="min-w-24"
       onClick={handleCopy}
     >
       {copied ? (

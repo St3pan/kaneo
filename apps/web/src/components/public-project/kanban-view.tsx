@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { getColumnIcon } from "@/lib/column";
+import { getStatusDisplayLabel } from "@/lib/i18n/domain";
 import { getStatusTone } from "@/lib/tone/status-tone";
 import { toneStyle } from "@/lib/tone/tone";
 import type { ProjectWithTasks } from "@/types/project";
@@ -14,12 +16,14 @@ export function PublicKanbanView({
   project,
   onTaskClick,
 }: PublicKanbanViewProps) {
+  const { t } = useTranslation();
   const columns = project.columns ?? [];
 
   return (
     <div className="flex-1 min-h-0 overflow-x-auto [-webkit-overflow-scrolling:touch]">
       <div className="flex gap-3 p-3 h-full min-w-max">
         {columns.map((column) => {
+          const columnLabel = getStatusDisplayLabel(column.id, column.name);
           return (
             <div
               key={column.id}
@@ -34,7 +38,7 @@ export function PublicKanbanView({
                     <div className="flex items-center gap-2">
                       {getColumnIcon(column.id, column.isFinal, column.icon)}
                       <h3 className="font-medium text-foreground">
-                        {column.name}
+                        {columnLabel}
                       </h3>
                       <span className="text-sm text-muted-foreground">
                         {column.tasks.length}
@@ -61,7 +65,7 @@ export function PublicKanbanView({
                       <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
                         {getColumnIcon(column.id, column.isFinal, column.icon)}
                       </div>
-                      No tasks in {column.name.toLowerCase()}
+                      {t("publicProject:emptyColumn", { column: columnLabel })}
                     </div>
                   )}
                 </div>

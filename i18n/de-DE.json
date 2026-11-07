@@ -13,7 +13,12 @@
 			"filter": "Filter"
 		},
 		"a11y": {
-			"toggleSidebar": "Seitenleiste umschalten"
+			"toggleSidebar": "Seitenleiste umschalten",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Seitenleiste",
@@ -4104,7 +4109,8 @@
 		},
 		"branding": {
 			"poweredBy": "Bereitgestellt von"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Pressemappe",

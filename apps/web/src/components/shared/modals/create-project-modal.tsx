@@ -91,7 +91,9 @@ function CreateProjectModal({ open, onClose }: CreateProjectModalProps) {
         },
       });
 
-      toast.success("Project created successfully", { icon: SquarePlusIcon });
+      toast.success(t("common:modals.createProject.successToast"), {
+        icon: SquarePlusIcon,
+      });
       handleClose();
     } catch (error) {
       toast.error(

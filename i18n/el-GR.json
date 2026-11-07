@@ -13,7 +13,12 @@
 			"filter": "Φίλτρο"
 		},
 		"a11y": {
-			"toggleSidebar": "Εναλλαγή πλαϊνής μπάρας"
+			"toggleSidebar": "Εναλλαγή πλαϊνής μπάρας",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Πλαϊνή μπάρα",
@@ -4104,7 +4109,8 @@
 		},
 		"branding": {
 			"poweredBy": "Υποστηρίζεται από"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

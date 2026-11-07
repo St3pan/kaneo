@@ -13,7 +13,12 @@
 			"filter": "篩選"
 		},
 		"a11y": {
-			"toggleSidebar": "切換側邊欄"
+			"toggleSidebar": "切換側邊欄",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "側邊欄",
@@ -4027,7 +4032,8 @@
 		},
 		"branding": {
 			"poweredBy": "技術提供："
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "媒體資料包",

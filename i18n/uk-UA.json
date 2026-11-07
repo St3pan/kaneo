@@ -13,7 +13,12 @@
 			"filter": "Фільтр"
 		},
 		"a11y": {
-			"toggleSidebar": "Перемикач бічної панелі"
+			"toggleSidebar": "Перемикач бічної панелі",
+			"toggleTheme": "Перемкнути тему",
+			"checked": "Вибрано",
+			"notifications": "Сповіщення",
+			"increase": "Збільшити",
+			"decrease": "Зменшити"
 		},
 		"sidebar": {
 			"title": "Бічна панель",
@@ -4258,7 +4263,8 @@
 		},
 		"branding": {
 			"poweredBy": "Працює на"
-		}
+		},
+		"emptyColumn": "У колонці «{{column}}» немає завдань"
 	},
 	"press": {
 		"title": "Press kit",

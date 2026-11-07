@@ -13,7 +13,12 @@
 			"filter": "Filtrar"
 		},
 		"a11y": {
-			"toggleSidebar": "Alternar barra lateral"
+			"toggleSidebar": "Alternar barra lateral",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Barra lateral",
@@ -4181,7 +4186,8 @@
 		},
 		"branding": {
 			"poweredBy": "Desenvolvido por"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

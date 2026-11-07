@@ -37,6 +37,10 @@ const m = vi.hoisted(() => ({
   relations: { data: [] as unknown[], isLoading: false, isError: false },
   refetchRelations: vi.fn(),
 }));
+vi.mock("@/lib/i18n/domain", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/lib/i18n/domain")>()),
+  getStatusDisplayLabel: (status: string, name?: string) => name ?? status,
+}));
 vi.mock("@dnd-kit/core", async (original) => ({
   ...(await original<typeof import("@dnd-kit/core")>()),
   DndContext: (props: typeof m.props & { children: React.ReactNode }) => {

@@ -13,7 +13,12 @@
 			"filter": "Filtrer"
 		},
 		"a11y": {
-			"toggleSidebar": "Basculer la barre latérale"
+			"toggleSidebar": "Basculer la barre latérale",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Barre latérale",
@@ -4181,7 +4186,8 @@
 		},
 		"branding": {
 			"poweredBy": "Propulsé par"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Kit de presse",

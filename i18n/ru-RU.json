@@ -13,7 +13,12 @@
 			"filter": "Фильтр"
 		},
 		"a11y": {
-			"toggleSidebar": "Переключить боковую панель"
+			"toggleSidebar": "Переключить боковую панель",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Боковая панель",
@@ -4310,7 +4315,8 @@
 		},
 		"branding": {
 			"poweredBy": "Работает на"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

@@ -13,7 +13,12 @@
 			"filter": "Филтрирај"
 		},
 		"a11y": {
-			"toggleSidebar": "Вклучи/исклучи странична лента"
+			"toggleSidebar": "Вклучи/исклучи странична лента",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Странична лента",
@@ -4104,7 +4109,8 @@
 		},
 		"branding": {
 			"poweredBy": "Овозможено од"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

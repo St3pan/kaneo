@@ -124,6 +124,7 @@ vi.mock("@/store/project", () => ({
   }),
 }));
 
+vi.mock("@/lib/i18n", () => ({ i18n: { t: (key: string) => key } }));
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string, options?: { title?: string }) =>

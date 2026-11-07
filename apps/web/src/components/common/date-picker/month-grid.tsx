@@ -1,6 +1,8 @@
 import { startOfDay } from "date-fns";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { DayPicker, type Matcher } from "react-day-picker";
+import { uk } from "react-day-picker/locale";
 import { cn } from "@/lib/cn";
 import { useUserPreferencesStore } from "@/store/user-preferences";
 
@@ -68,6 +70,7 @@ export function MonthGrid({
   highlighted,
   autoFocus = true,
 }: MonthGridProps) {
+  const { i18n } = useTranslation();
   const weekStartsOn = useUserPreferencesStore((state) => state.weekStartsOn);
   const today = startOfDay(new Date());
 
@@ -82,6 +85,7 @@ export function MonthGrid({
       onSelect={onSelect}
       disabled={disabled}
       weekStartsOn={weekStartsOn}
+      locale={i18n?.resolvedLanguage?.startsWith("uk") ? uk : undefined}
       modifiers={{
         past: { before: today },
         limit: marked ?? false,

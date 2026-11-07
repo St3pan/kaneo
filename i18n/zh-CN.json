@@ -13,7 +13,12 @@
 			"filter": "筛选"
 		},
 		"a11y": {
-			"toggleSidebar": "切换侧边栏"
+			"toggleSidebar": "切换侧边栏",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "侧边栏",
@@ -4027,7 +4032,8 @@
 		},
 		"branding": {
 			"poweredBy": "由以下技术提供支持"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "媒体资源包",

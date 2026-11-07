@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useUpdateTask } from "@/hooks/mutations/task/use-update-task";
 import { useWorkspacePermission } from "@/hooks/use-workspace-permission";
 import { getColumnIcon } from "@/lib/column";
+import { getStatusDisplayLabel } from "@/lib/i18n/domain";
 import { toast } from "@/lib/toast";
 import useProjectStore from "@/store/project";
 import type { ProjectWithTasks } from "@/types/project";
@@ -64,7 +65,7 @@ export function ColumnHeader({
           {getColumnIcon(column.id, column.isFinal, column.icon)}
         </span>
         <span className="truncate font-medium text-[13px] text-board-title leading-5">
-          {column.name}
+          {getStatusDisplayLabel(column.id, column.name)}
         </span>
         <span className="rounded-md bg-card px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
           {column.tasks.length}

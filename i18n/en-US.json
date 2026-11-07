@@ -13,7 +13,12 @@
 			"filter": "Filter"
 		},
 		"a11y": {
-			"toggleSidebar": "Toggle sidebar"
+			"toggleSidebar": "Toggle sidebar",
+			"toggleTheme": "Toggle theme",
+			"checked": "Checked",
+			"notifications": "Notifications",
+			"increase": "Increase",
+			"decrease": "Decrease"
 		},
 		"sidebar": {
 			"title": "Sidebar",
@@ -4104,7 +4109,8 @@
 		},
 		"branding": {
 			"poweredBy": "Powered by"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

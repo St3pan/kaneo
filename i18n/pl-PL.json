@@ -13,7 +13,12 @@
 			"filter": "Filtruj"
 		},
 		"a11y": {
-			"toggleSidebar": "Przełącz pasek boczny"
+			"toggleSidebar": "Przełącz pasek boczny",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Pasek boczny",
@@ -1111,7 +1116,8 @@
 		},
 		"branding": {
 			"poweredBy": "Obsługiwane przez"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"invitations": {
 		"email": {

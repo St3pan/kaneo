@@ -13,7 +13,12 @@
 			"filter": "Lọc"
 		},
 		"a11y": {
-			"toggleSidebar": "Bật/tắt thanh bên"
+			"toggleSidebar": "Bật/tắt thanh bên",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Thanh bên",
@@ -4027,7 +4032,8 @@
 		},
 		"branding": {
 			"poweredBy": "Được vận hành bởi"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

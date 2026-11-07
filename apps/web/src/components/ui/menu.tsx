@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
+import i18n from "i18next";
 import { ChevronRightIcon } from "lucide-react";
 import * as React from "react";
 
@@ -151,7 +152,7 @@ function MenuCheckboxItem({
               width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>Check</title>
+              <title>{i18n.t("common:a11y.checked")}</title>
               <path d="M5.252 12.7 10.2 18.63 18.748 5.37" />
             </svg>
           </MenuPrimitive.CheckboxItemIndicator>
@@ -192,7 +193,7 @@ function MenuRadioItem({
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>Check</title>
+          <title>{i18n.t("common:a11y.checked")}</title>
           <path d="M5.252 12.7 10.2 18.63 18.748 5.37" />
         </svg>
       </MenuPrimitive.RadioItemIndicator>

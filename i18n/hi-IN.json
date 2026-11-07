@@ -13,7 +13,12 @@
 			"filter": "फ़िल्टर"
 		},
 		"a11y": {
-			"toggleSidebar": "साइडबार टॉगल करें"
+			"toggleSidebar": "साइडबार टॉगल करें",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "साइडबार",
@@ -4104,7 +4109,8 @@
 		},
 		"branding": {
 			"poweredBy": "द्वारा संचालित"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

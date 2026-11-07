@@ -13,7 +13,12 @@
 			"filter": "필터"
 		},
 		"a11y": {
-			"toggleSidebar": "사이드바 토글"
+			"toggleSidebar": "사이드바 토글",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "사이드바",
@@ -4027,7 +4032,8 @@
 		},
 		"branding": {
 			"poweredBy": "제공"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

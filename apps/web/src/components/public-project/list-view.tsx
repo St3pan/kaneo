@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { getColumnIcon } from "@/lib/column";
+import { getStatusDisplayLabel } from "@/lib/i18n/domain";
 import type { ProjectWithTasks } from "@/types/project";
 import type Task from "@/types/task";
 import { PublicTaskRow } from "./task-row";
@@ -9,12 +11,14 @@ type PublicListViewProps = {
 };
 
 export function PublicListView({ project, onTaskClick }: PublicListViewProps) {
+  const { t } = useTranslation();
   const columns = project.columns ?? [];
 
   return (
     <div className="flex-1 min-h-0 overflow-y-auto">
       <div className="p-6 space-y-8 max-w-5xl mx-auto">
         {columns.map((column) => {
+          const columnLabel = getStatusDisplayLabel(column.id, column.name);
           return (
             <div key={column.id} className="space-y-4">
               <div className="flex items-center gap-3 px-2">
@@ -22,7 +26,7 @@ export function PublicListView({ project, onTaskClick }: PublicListViewProps) {
                   {getColumnIcon(column.id, column.isFinal, column.icon)}
                 </span>
                 <h3 className="font-semibold text-lg text-foreground">
-                  {column.name}
+                  {columnLabel}
                 </h3>
                 <span className="text-sm text-muted-foreground bg-muted px-3 py-1 rounded-full font-medium">
                   {column.tasks.length}
@@ -45,7 +49,7 @@ export function PublicListView({ project, onTaskClick }: PublicListViewProps) {
                     <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mx-auto mb-2">
                       {getColumnIcon(column.id, column.isFinal, column.icon)}
                     </div>
-                    No tasks in {column.name.toLowerCase()}
+                    {t("publicProject:emptyColumn", { column: columnLabel })}
                   </div>
                 )}
               </div>

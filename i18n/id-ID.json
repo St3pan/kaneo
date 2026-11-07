@@ -13,7 +13,12 @@
 			"filter": "Filter"
 		},
 		"a11y": {
-			"toggleSidebar": "Tampilkan/sembunyikan panel samping"
+			"toggleSidebar": "Tampilkan/sembunyikan panel samping",
+			"checked": "Checked",
+			"toggleTheme": "Toggle theme",
+			"decrease": "Decrease",
+			"increase": "Increase",
+			"notifications": "Notifications"
 		},
 		"sidebar": {
 			"title": "Bilah sisi",
@@ -4027,7 +4032,8 @@
 		},
 		"branding": {
 			"poweredBy": "Didukung oleh"
-		}
+		},
+		"emptyColumn": "No tasks in {{column}}"
 	},
 	"press": {
 		"title": "Press kit",

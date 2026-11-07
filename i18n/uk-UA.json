@@ -558,7 +558,7 @@
 		"mcp": {
 			"authorize": {
 				"title": "Авторизація MCP-клієнта",
-				"description": "Він зможе діяти від вашого імені в усіх робочих просторах, до яких ви маєте доступ. Продовжуйте, лише якщо ви самі розпочали це підключення.",
+				"description": "Цей застосунок зможе діяти від вашого імені в усіх робочих просторах, до яких ви маєте доступ. Продовжуйте, лише якщо ви самі розпочали це підключення.",
 				"client": "Клієнт",
 				"unknownClient": "MCP-клієнт",
 				"selfReported": "Зі слів клієнта",
@@ -3178,11 +3178,11 @@
 				"contentWithoutTask": "Відлік часу розпочато для завдання"
 			},
 			"task_mention": {
-				"title": "{{mentionerName}} згадав вас",
-				"content": "{{mentionerName}} згадав вас у: {{taskTitle}}"
+				"title": "{{mentionerName}}: згадка про вас",
+				"content": "{{mentionerName}}: згадка про вас у завданні «{{taskTitle}}»"
 			},
 			"task_comment": {
-				"title": "{{commenterName}} прокоментував ваше завдання",
+				"title": "{{commenterName}}: коментар до вашого завдання",
 				"content": "Новий коментар до {{taskTitle}}: {{commentPreview}}"
 			},
 			"due_date_reminder": {
@@ -3232,15 +3232,15 @@
 		}
 	},
 	"activity": {
-		"assignedToSelf": "призначив завдання собі",
-		"unassigned": "зняв призначення завдання",
-		"assignedTo": "призначив завдання на {{name}}",
-		"changedStatus": "змінив статус з {{from}} на {{to}}",
-		"changedPriority": "змінив пріоритет з {{from}} на {{to}}",
-		"clearedDueDate": "очистив дату завершення",
-		"setDueDate": "встановив дату завершення на {{date}}",
-		"changedDueDate": "змінив дату завершення з {{from}} на {{to}}",
-		"changedTitle": "змінив назву з «{{from}}» на «{{to}}»",
+		"assignedToSelf": "призначив(-ла) завдання собі",
+		"unassigned": "зняв(-ла) виконавця із завдання",
+		"assignedTo": "призначив(-ла) виконавця: {{name}}",
+		"changedStatus": "змінив(-ла) статус з {{from}} на {{to}}",
+		"changedPriority": "змінив(-ла) пріоритет з {{from}} на {{to}}",
+		"clearedDueDate": "очистив(-ла) дату завершення",
+		"setDueDate": "встановив(-ла) дату завершення на {{date}}",
+		"changedDueDate": "змінив(-ла) дату завершення з {{from}} на {{to}}",
+		"changedTitle": "змінив(-ла) назву з «{{from}}» на «{{to}}»",
 		"githubUser": "Користувач GitHub",
 		"comment": {
 			"viewGithubProfile": "Переглянути профіль GitHub",
@@ -3339,11 +3339,11 @@
 			},
 			"importedFrom": "Імпортовано з {{source}}",
 			"importedBy": "Автор імпорту: {{name}}",
-			"commentedOnForge": "прокоментував на {{forge}}"
+			"commentedOnForge": "прокоментував(-ла) на {{forge}}"
 		},
-		"moved": "перемістив завдання з «{{from}}» до «{{to}}»",
-		"created": "створив це завдання",
-		"movedFromOtherProject": "перемістив завдання з іншого проєкту до «{{to}}»"
+		"moved": "перемістив(-ла) завдання з «{{from}}» до «{{to}}»",
+		"created": "створив(-ла) це завдання",
+		"movedFromOtherProject": "перемістив(-ла) завдання з іншого проєкту до «{{to}}»"
 	},
 	"tasks": {
 		"title": "Завдання",
@@ -4004,7 +4004,7 @@
 		"skipForNow": "Пропустити поки що",
 		"table": {
 			"workspace": "Робочий простір",
-			"invitedBy": "Запросив",
+			"invitedBy": "Хто запросив",
 			"expires": "Закінчується"
 		},
 		"toast": {
@@ -4079,11 +4079,11 @@
 		},
 		"home": {
 			"activity": {
-				"commented": "прокоментував",
+				"commented": "прокоментував(-ла)",
 				"empty": "За останні 30 днів нічого не відбувалося.",
 				"loadError": "Не вдалося завантажити активність.",
 				"title": "Активність",
-				"updated": "оновив завдання"
+				"updated": "оновив(-ла) завдання"
 			},
 			"greeting": {
 				"afternoon": "Доброго дня",

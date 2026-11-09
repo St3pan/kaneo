@@ -269,7 +269,7 @@
 			"invitation": {
 				"description": "Використайте адресу електронної пошти, на яку надійшло запрошення. Одразу після цього ви приєднаєтеся до робочого простору."
 			},
-			"verifyEmail": "Check your email to confirm your address, then sign in."
+			"verifyEmail": "Перевірте пошту, підтвердьте адресу й увійдіть."
 		},
 		"verifyOtp": {
 			"pageTitle": "Підтвердження коду",
@@ -297,7 +297,7 @@
 		},
 		"signInForm": {
 			"failedSignIn": "Не вдалося увійти",
-			"emailNotVerified": "Confirm your email address first. We sent you a new link."
+			"emailNotVerified": "Спершу підтвердьте адресу електронної пошти. Ми надіслали вам нове посилання."
 		},
 		"invitation": {
 			"pageTitleAccept": "Прийняти запрошення",
@@ -553,7 +553,7 @@
 				"description": "Одразу після входу ви повернетеся сюди, щоб підтвердити його.",
 				"submit": "Увійти"
 			},
-			"openApp": "Open Kaneo"
+			"openApp": "Відкрити Kaneo"
 		},
 		"mcp": {
 			"authorize": {
@@ -964,9 +964,9 @@
 			"telegramSectionTitle": "Інтеграція з Telegram",
 			"telegramSectionSubtitle": "Надсилайте оновлення завдань проєкту до чату або теми Telegram за допомогою бота.",
 			"mattermostSectionSubtitle": "Надсилайте оновлення завдань проєкту до каналу Mattermost за допомогою вхідного вебхука.",
-			"mattermostSectionTitle": "Mattermost Integration",
+			"mattermostSectionTitle": "Інтеграція з Mattermost",
 			"gitlabSectionSubtitle": "Синхронізуйте завдання з GitLab.com або власним екземпляром.",
-			"gitlabSectionTitle": "GitLab Integration",
+			"gitlabSectionTitle": "Інтеграція з GitLab",
 			"codeHostingTitle": "Хостинг коду",
 			"chatTitle": "Чати та вебхуки",
 			"statusConnected": "Підключено",
@@ -974,7 +974,7 @@
 			"connect": "Підключити",
 			"configure": "Налаштувати",
 			"done": "Готово",
-			"turnedOffByAdmin": "Turned off by an administrator"
+			"turnedOffByAdmin": "Вимкнено адміністратором"
 		},
 		"projectVisibility": {
 			"pageTitle": "Видимість проєкту",
@@ -1541,7 +1541,7 @@
 				"saveError": "Не вдалося зберегти інтеграцію з Mattermost",
 				"updateError": "Не вдалося оновити інтеграцію з Mattermost"
 			},
-			"update": "Update Mattermost",
+			"update": "Оновити Mattermost",
 			"validation": {
 				"webhookInvalid": "Введіть дійсну URL-адресу вебхука Mattermost"
 			},
@@ -1555,7 +1555,7 @@
 			"defaultLabel": "Значення за замовчуванням",
 			"deleteError": "Не вдалося видалити користувацьке поле.",
 			"deleteSuccess": "Користувацьке поле видалено.",
-			"deleting": "Deleting...",
+			"deleting": "Видалення...",
 			"namePlaceholder": "Назва поля",
 			"required": "Обов'язкове",
 			"types": {
@@ -1569,7 +1569,7 @@
 			"clearDefault": "Очистити значення за замовчуванням",
 			"moreOptions": "та ще {{hiddenCount}}",
 			"reorderError": "Не вдалося змінити порядок полів",
-			"selectPlaceholder": "Select option(s)",
+			"selectPlaceholder": "Виберіть варіант(и)",
 			"actionsAria": "Дії для {{name}}",
 			"addOption": "Додати варіант",
 			"allowSeveral": "Дозволити кілька",
@@ -1622,10 +1622,10 @@
 				"edit": "Редагувати",
 				"open": "Дії для {{name}}",
 				"reactivate": "Активувати знову",
-				"markEmailVerified": "Mark email as verified",
-				"sendPasswordReset": "Send password reset link",
-				"sendVerification": "Resend verification email",
-				"security": "Sessions & API keys"
+				"markEmailVerified": "Позначити адресу як підтверджену",
+				"sendPasswordReset": "Надіслати посилання для скидання пароля",
+				"sendVerification": "Повторно надіслати лист підтвердження",
+				"security": "Сеанси й API-ключі"
 			},
 			"clearSearch": "Очистити пошук",
 			"columns": {
@@ -1634,7 +1634,7 @@
 				"role": "Роль",
 				"status": "Статус",
 				"user": "Користувач",
-				"lastActive": "Last active"
+				"lastActive": "Остання активність"
 			},
 			"confirm": {
 				"deactivate": {
@@ -1654,16 +1654,16 @@
 				},
 				"working": "Виконання…",
 				"markEmailVerified": {
-					"action": "Mark as verified",
-					"title": "Mark this email as verified?"
+					"action": "Позначити як підтверджену",
+					"title": "Позначити цю адресу як підтверджену?"
 				},
 				"sendPasswordReset": {
-					"action": "Send link",
-					"title": "Send a password reset link?"
+					"action": "Надіслати посилання",
+					"title": "Надіслати посилання для скидання пароля?"
 				},
 				"sendVerification": {
-					"action": "Send email",
-					"title": "Resend the verification email?"
+					"action": "Надіслати лист",
+					"title": "Повторно надіслати лист підтвердження?"
 				}
 			},
 			"directoryTitle": "Усі користувачі",
@@ -1708,76 +1708,76 @@
 				"reactivated": "Користувача знову активовано",
 				"updated": "Користувача оновлено",
 				"updateError": "Не вдалося оновити користувача",
-				"avatarChanged": "Profile picture updated",
-				"avatarError": "Failed to update the profile picture",
-				"avatarRemoved": "Profile picture removed",
-				"createdForSso": "User created for single sign-on.",
-				"createdLinkFailed": "User created. Password email failed; retry “Send password reset link”.",
-				"createdLinkSent": "User created. Password link sent to {{email}}.",
-				"createdNoSmtp": "User created. Set SMTP_HOST to send a password link.",
-				"createError": "Failed to create user",
-				"emailError": "The email could not be sent",
-				"emailVerified": "Email marked as verified",
-				"passwordResetSent": "Password reset link sent to {{email}}",
-				"verificationSent": "Verification email sent to {{email}}"
+				"avatarChanged": "Фото профілю оновлено",
+				"avatarError": "Не вдалося оновити фото профілю",
+				"avatarRemoved": "Фото профілю видалено",
+				"createdForSso": "Користувача створено для єдиного входу (SSO).",
+				"createdLinkFailed": "Користувача створено, але лист із паролем не надіслано. Повторіть «Надіслати посилання для скидання пароля».",
+				"createdLinkSent": "Користувача створено. Посилання для пароля надіслано на {{email}}.",
+				"createdNoSmtp": "Користувача створено. Щоб надсилати посилання для пароля, задайте SMTP_HOST.",
+				"createError": "Не вдалося створити користувача",
+				"emailError": "Не вдалося надіслати лист",
+				"emailVerified": "Адресу позначено як підтверджену",
+				"passwordResetSent": "Посилання для скидання пароля надіслано на {{email}}",
+				"verificationSent": "Лист підтвердження надіслано на {{email}}"
 			},
 			"you": "Ви",
 			"create": {
-				"creating": "Creating…",
-				"open": "Create user",
-				"submit": "Create user",
-				"title": "Create user",
-				"nameRequired": "Enter a name",
-				"hintNoEmail": "Set SMTP_HOST to send password links."
+				"creating": "Створення…",
+				"open": "Створити користувача",
+				"submit": "Створити користувача",
+				"title": "Створити користувача",
+				"nameRequired": "Введіть назву",
+				"hintNoEmail": "Щоб надсилати посилання для пароля, задайте SMTP_HOST."
 			},
 			"details": {
-				"emailStatus": "Email",
+				"emailStatus": "Електронна пошта",
 				"methods": {
-					"password": "Password"
+					"password": "Пароль"
 				},
-				"noSignInMethods": "No password or linked account yet",
-				"notVerified": "Not verified",
-				"removeAvatar": "Remove",
-				"signInMethods": "Sign-in methods",
-				"uploadAvatar": "Upload",
-				"verified": "Verified"
+				"noSignInMethods": "Ще немає ні пароля, ні пов'язаного облікового запису",
+				"notVerified": "Не підтверджено",
+				"removeAvatar": "Прибрати",
+				"signInMethods": "Способи входу",
+				"uploadAvatar": "Завантажити",
+				"verified": "Підтверджено"
 			},
 			"filters": {
-				"anyEmail": "Any email",
-				"anyRole": "Any role",
-				"anyStatus": "Any status",
-				"clear": "Clear filters",
-				"email": "Email verification",
-				"label": "Filter users",
-				"role": "Role",
-				"status": "Status",
-				"unverified": "Unverified email",
-				"verified": "Verified email"
+				"anyEmail": "Будь-яка пошта",
+				"anyRole": "Будь-яка роль",
+				"anyStatus": "Будь-який статус",
+				"clear": "Скинути фільтри",
+				"email": "Підтвердження пошти",
+				"label": "Фільтрувати користувачів",
+				"role": "Роль",
+				"status": "Статус",
+				"unverified": "Пошту не підтверджено",
+				"verified": "Пошту підтверджено"
 			},
-			"never": "Never",
-			"unverified": "Unverified",
+			"never": "Безстроково",
+			"unverified": "Не підтверджено",
 			"security": {
-				"apiKeysEmpty": "No API keys.",
-				"apiKeysLoadError": "Couldn't load API keys.",
-				"apiKeysTitle": "API keys",
-				"disabled": "Disabled",
-				"lastUsed": "Last used {{time}}",
-				"neverUsed": "Never used",
-				"revokeAll": "Sign out everywhere",
-				"revokeAllConfirmDescription": "They'll be signed out everywhere right away.",
-				"revokeAllConfirmTitle": "Sign {{name}} out everywhere?",
-				"revokeAllSelfDescription": "Your other sessions will be signed out right away.",
-				"revokeKey": "Revoke",
-				"revokeKeyConfirmDescription": "Requests using this key will fail right away.",
-				"revokeKeyConfirmTitle": "Revoke {{name}}?",
-				"revokeKeyLabel": "Revoke {{name}}",
-				"revokingKey": "Revoking...",
-				"sessionsEmpty": "Not signed in anywhere.",
-				"sessionsTitle": "Sessions",
-				"title": "Sessions & API keys: {{name}}",
-				"toastKeyRevoked": "API key revoked.",
-				"toastKeyRevokeError": "Couldn't revoke the API key.",
-				"toastRevokedAll": "Sessions signed out."
+				"apiKeysEmpty": "Немає API-ключів.",
+				"apiKeysLoadError": "Не вдалося завантажити API-ключі.",
+				"apiKeysTitle": "API-ключі",
+				"disabled": "Вимкнено",
+				"lastUsed": "Востаннє використано {{time}}",
+				"neverUsed": "Ще не використовувався",
+				"revokeAll": "Вийти на всіх пристроях",
+				"revokeAllConfirmDescription": "Усі сеанси буде одразу завершено на всіх пристроях.",
+				"revokeAllConfirmTitle": "Завершити всі сеанси {{name}}?",
+				"revokeAllSelfDescription": "Ваші інші сеанси буде одразу завершено.",
+				"revokeKey": "Відкликати",
+				"revokeKeyConfirmDescription": "Запити з цим ключем одразу перестануть працювати.",
+				"revokeKeyConfirmTitle": "Відкликати {{name}}?",
+				"revokeKeyLabel": "Відкликати {{name}}",
+				"revokingKey": "Відкликання…",
+				"sessionsEmpty": "Немає активних сеансів.",
+				"sessionsTitle": "Сеанси",
+				"title": "Сеанси й API-ключі: {{name}}",
+				"toastKeyRevoked": "API-ключ відкликано.",
+				"toastKeyRevokeError": "Не вдалося відкликати API-ключ.",
+				"toastRevokedAll": "Сеанси завершено."
 			}
 		},
 		"security": "Безпека",
@@ -1813,11 +1813,11 @@
 			"passwordHint": "Використовуйте щонайменше 8 символів, які ви більше ніде не використовуєте.",
 			"passwordTitle": "Пароль",
 			"sessions": {
-				"revokeOthers": "Sign out other sessions",
-				"revokeOthersConfirmDescription": "Your other sessions will be signed out right away.",
-				"revokeOthersConfirmTitle": "Sign out all other sessions?",
-				"title": "Active sessions",
-				"toastRevokedOthers": "Other sessions signed out."
+				"revokeOthers": "Завершити інші сеанси",
+				"revokeOthersConfirmDescription": "Ваші інші сеанси буде одразу завершено.",
+				"revokeOthersConfirmTitle": "Завершити всі інші сеанси?",
+				"title": "Активні сеанси",
+				"toastRevokedOthers": "Інші сеанси завершено."
 			}
 		},
 		"gitlabIntegration": {
@@ -1943,12 +1943,12 @@
 			"pageTitle": "Оплата",
 			"plans": {
 				"personal": {
-					"name": "Personal",
-					"tagline": "For individuals"
+					"name": "Особистий",
+					"tagline": "Для однієї людини"
 				},
 				"team": {
 					"name": "Команда",
-					"tagline": "For teams working together"
+					"tagline": "Для команд, що працюють разом"
 				}
 			},
 			"portalHint": "Рахунками, способом оплати та скасуванням можна керувати в Creem.",
@@ -2112,19 +2112,19 @@
 				},
 				"working": "Виконання…",
 				"archive": {
-					"action": "Archive workspace",
-					"description": "Members will lose access until it's restored.",
-					"title": "Archive {{name}}?"
+					"action": "Архівувати простір",
+					"description": "Учасники втратять доступ, доки простір не буде відновлено.",
+					"title": "Архівувати {{name}}?"
 				},
 				"delete": {
-					"action": "Delete workspace",
-					"description": "Its projects, tasks, and files will be permanently deleted.",
-					"title": "Delete {{name}}?",
-					"typeName": "Type {{name}} to confirm"
+					"action": "Видалити робочий простір",
+					"description": "Його проєкти, завдання й файли буде видалено назавжди.",
+					"title": "Видалити {{name}}?",
+					"typeName": "Введіть {{name}}, щоб підтвердити"
 				},
 				"restore": {
-					"action": "Restore workspace",
-					"title": "Restore {{name}}?"
+					"action": "Відновити простір",
+					"title": "Відновити {{name}}?"
 				}
 			},
 			"directoryTitle": "Усі робочі простори",
@@ -2172,19 +2172,19 @@
 				"roleError": "Не вдалося оновити роль",
 				"roleUpdated": "Роль оновлено",
 				"transferError": "Не вдалося передати право власності",
-				"archived": "Workspace archived",
-				"archiveError": "Could not archive workspace",
-				"deleted": "Workspace deleted",
-				"deleteError": "Could not delete workspace",
-				"restored": "Workspace restored",
-				"restoreError": "Could not restore workspace"
+				"archived": "Робочий простір архівовано",
+				"archiveError": "Не вдалося архівувати робочий простір",
+				"deleted": "Робочий простір видалено",
+				"deleteError": "Не вдалося видалити робочий простір",
+				"restored": "Робочий простір відновлено",
+				"restoreError": "Не вдалося відновити робочий простір"
 			},
 			"actions": {
-				"archive": "Archive workspace",
-				"open": "Actions for {{name}}",
-				"restore": "Restore workspace"
+				"archive": "Архівувати простір",
+				"open": "Дії для {{name}}",
+				"restore": "Відновити простір"
 			},
-			"archived": "Archived"
+			"archived": "Архівовано"
 		},
 		"workspaceImport": {
 			"back": {
@@ -2582,364 +2582,364 @@
 		},
 		"adminAuditLog": {
 			"actions": {
-				"sessionRevoked": "Revoked a session",
-				"sessionRevokedAll": "Revoked all sessions",
-				"userCreated": "Created user",
-				"userDeactivated": "Deactivated user",
-				"userDeleted": "Deleted user",
-				"userImpersonated": "Signed in as user",
-				"userPasswordSet": "Set user password",
-				"userReactivated": "Reactivated user",
-				"userRoleChanged": "Changed instance role",
-				"userUpdated": "Updated user details",
-				"workspaceMemberAdded": "Added workspace member",
-				"workspaceMemberRemoved": "Removed workspace member",
-				"workspaceMemberRoleChanged": "Changed workspace member role",
-				"workspaceOwnerTransferred": "Transferred workspace ownership",
-				"userAvatarChanged": "Changed profile picture",
-				"userAvatarRemoved": "Removed profile picture",
-				"userEmailVerified": "Marked email as verified",
-				"userPasswordResetSent": "Sent password reset link",
-				"userVerificationSent": "Sent verification email",
-				"apiKeyRevoked": "Revoked an API key",
-				"emailTestSent": "Sent test email",
-				"workspaceArchived": "Archived workspace",
-				"workspaceDeleted": "Deleted workspace",
-				"workspaceRestored": "Restored workspace",
-				"roleCreated": "Role created",
-				"roleDeleted": "Role deleted",
-				"roleUpdated": "Role updated",
-				"instanceSettingsUpdated": "Updated instance settings",
-				"webhookCreated": "Created webhook",
-				"webhookDeleted": "Deleted webhook",
-				"webhookSecretRotated": "Rotated webhook secret",
-				"webhookUpdated": "Updated webhook"
+				"sessionRevoked": "Завершено сеанс",
+				"sessionRevokedAll": "Завершено всі сеанси",
+				"userCreated": "Створено користувача",
+				"userDeactivated": "Деактивовано користувача",
+				"userDeleted": "Видалено користувача",
+				"userImpersonated": "Вхід від імені користувача",
+				"userPasswordSet": "Задано пароль користувача",
+				"userReactivated": "Знову активовано користувача",
+				"userRoleChanged": "Змінено роль на сервері",
+				"userUpdated": "Оновлено дані користувача",
+				"workspaceMemberAdded": "Додано учасника простору",
+				"workspaceMemberRemoved": "Вилучено учасника простору",
+				"workspaceMemberRoleChanged": "Змінено роль учасника простору",
+				"workspaceOwnerTransferred": "Передано право власності на простір",
+				"userAvatarChanged": "Змінено фото профілю",
+				"userAvatarRemoved": "Видалено фото профілю",
+				"userEmailVerified": "Адресу позначено як підтверджену",
+				"userPasswordResetSent": "Надіслано посилання для скидання пароля",
+				"userVerificationSent": "Надіслано лист підтвердження",
+				"apiKeyRevoked": "Відкликано API-ключ",
+				"emailTestSent": "Надіслано тестовий лист",
+				"workspaceArchived": "Архівовано робочий простір",
+				"workspaceDeleted": "Видалено робочий простір",
+				"workspaceRestored": "Відновлено робочий простір",
+				"roleCreated": "Роль створено",
+				"roleDeleted": "Роль видалено",
+				"roleUpdated": "Роль оновлено",
+				"instanceSettingsUpdated": "Оновлено налаштування сервера",
+				"webhookCreated": "Створено вебхук",
+				"webhookDeleted": "Видалено вебхук",
+				"webhookSecretRotated": "Замінено секрет вебхука",
+				"webhookUpdated": "Оновлено вебхук"
 			},
 			"categories": {
-				"all": "All actions",
-				"session": "Sessions",
-				"user": "Users",
-				"workspace": "Workspaces",
-				"apiKey": "API keys",
-				"email": "Email",
-				"role": "Roles",
-				"instance": "Instance settings",
-				"webhook": "Webhooks"
+				"all": "Усі дії",
+				"session": "Сеанси",
+				"user": "Користувачі",
+				"workspace": "Робочі простори",
+				"apiKey": "API-ключі",
+				"email": "Електронна пошта",
+				"role": "Ролі",
+				"instance": "Налаштування сервера",
+				"webhook": "Вебхуки"
 			},
-			"categoryLabel": "Filter by category",
-			"clearFilter": "Show all actions",
+			"categoryLabel": "Фільтр за категорією",
+			"clearFilter": "Показати всі дії",
 			"columns": {
-				"action": "Action",
-				"actor": "Administrator",
-				"target": "Target",
-				"time": "Time and IP"
+				"action": "Дія",
+				"actor": "Адміністратор",
+				"target": "Об'єкт",
+				"time": "Час та IP"
 			},
-			"deletedActor": "Account deleted",
+			"deletedActor": "Обліковий запис видалено",
 			"details": {
 				"change": "{{from}} → {{to}}",
-				"fields": "Changed {{fields}}",
+				"fields": "Змінено: {{fields}}",
 				"memberChange": "{{member}}: {{from}} → {{to}}",
-				"memberWithRole": "{{member}} as {{role}}",
-				"noRole": "No role",
-				"reason": "Reason: {{reason}}",
-				"createdWithRole": "Role: {{role}}",
-				"sessionCount_few": "{{count}} sessions",
-				"sessionCount_many": "{{count}} sessions",
-				"sessionCount_one": "{{count}} session",
-				"sessionCount_other": "{{count}} sessions",
-				"workspaceContents": "{{members}} members, {{projects}} projects",
-				"permissionsChanged": "{{added}} permissions added, {{removed}} removed"
+				"memberWithRole": "{{member}}, роль: {{role}}",
+				"noRole": "Без ролі",
+				"reason": "Причина: {{reason}}",
+				"createdWithRole": "Роль: {{role}}",
+				"sessionCount_few": "{{count}} сеанси",
+				"sessionCount_many": "{{count}} сеансів",
+				"sessionCount_one": "{{count}} сеанс",
+				"sessionCount_other": "{{count}} сеансу",
+				"workspaceContents": "Учасників: {{members}}, проєктів: {{projects}}",
+				"permissionsChanged": "Додано дозволів: {{added}}, вилучено: {{removed}}"
 			},
-			"directoryTitle": "Recorded actions",
-			"emptyTitle": "No actions recorded",
+			"directoryTitle": "Записані дії",
+			"emptyTitle": "Дій ще не записано",
 			"fields": {
-				"email": "email",
-				"emailVerified": "email verification",
-				"image": "avatar",
-				"name": "name"
+				"email": "пошту",
+				"emailVerified": "підтвердження пошти",
+				"image": "фото профілю",
+				"name": "ім'я"
 			},
-			"loadError": "The audit log could not be loaded.",
+			"loadError": "Не вдалося завантажити журнал дій.",
 			"mobileSummary": "{{actor}} · {{target}} · {{time}}",
-			"next": "Next",
-			"pagination": "Page {{current}} of {{total}}",
-			"previous": "Previous",
-			"refreshing": "Refreshing audit log",
-			"retry": "Retry",
+			"next": "Наступна",
+			"pagination": "Сторінка {{current}} з {{total}}",
+			"previous": "Попередня",
+			"refreshing": "Оновлення журналу дій",
+			"retry": "Спробувати ще раз",
 			"targetTypes": {
-				"user": "User",
-				"workspace": "Workspace",
-				"role": "Role",
-				"instance": "Instance",
-				"webhook": "Webhook"
+				"user": "Користувач",
+				"workspace": "Робочий простір",
+				"role": "Роль",
+				"instance": "Сервер",
+				"webhook": "Вебхук"
 			},
-			"title": "Audit log",
-			"unknownActor": "Unknown"
+			"title": "Журнал дій",
+			"unknownActor": "Невідомо"
 		},
 		"sessions": {
-			"device": "{{browser}} on {{os}}",
-			"lastActive": "Active {{time}}",
-			"loadError": "Couldn't load sessions.",
-			"revoke": "Sign out",
-			"revokeConfirmDescription": "They'll be signed out right away.",
-			"revokeConfirmTitle": "Sign out {{device}}?",
-			"revokeLabel": "Sign out {{device}}",
-			"revoking": "Signing out...",
-			"signedIn": "Signed in {{date}}",
-			"thisDevice": "This device",
-			"toastRevoked": "Session signed out.",
-			"toastRevokeError": "Couldn't sign out the session.",
-			"unknownDevice": "Unknown device"
+			"device": "{{browser}} на {{os}}",
+			"lastActive": "Активність: {{time}}",
+			"loadError": "Не вдалося завантажити сеанси.",
+			"revoke": "Вийти",
+			"revokeConfirmDescription": "Сеанс буде одразу завершено.",
+			"revokeConfirmTitle": "Завершити сеанс на {{device}}?",
+			"revokeLabel": "Завершити сеанс на {{device}}",
+			"revoking": "Вихід...",
+			"signedIn": "Вхід: {{date}}",
+			"thisDevice": "Цей пристрій",
+			"toastRevoked": "Сеанс завершено.",
+			"toastRevokeError": "Не вдалося завершити сеанс.",
+			"unknownDevice": "Невідомий пристрій"
 		},
 		"adminSystem": {
-			"checkedAt": "Checked {{time}}",
+			"checkedAt": "Перевірено {{time}}",
 			"email": {
-				"down": "Can't connect to the mail server ({{code}})",
-				"notConfigured": "Set SMTP_HOST and SMTP_FROM to turn on email.",
-				"ok": "Connected to the mail server",
-				"send": "Send test email",
-				"sending": "Sending…",
-				"sendTest": "Test email",
+				"down": "Не вдається підключитися до поштового сервера ({{code}})",
+				"notConfigured": "Задайте SMTP_HOST і SMTP_FROM, щоб увімкнути пошту.",
+				"ok": "Підключено до поштового сервера",
+				"send": "Надіслати тестовий лист",
+				"sending": "Надсилання…",
+				"sendTest": "Тестовий лист",
 				"smtp": "SMTP",
-				"title": "Email"
+				"title": "Електронна пошта"
 			},
 			"instance": {
 				"api": "API",
-				"apiDescription": "Up {{uptime}} · Node {{node}}",
-				"database": "Database",
-				"databaseDown": "Can't reach PostgreSQL ({{code}})",
+				"apiDescription": "Працює {{uptime}} · Node {{node}}",
+				"database": "База даних",
+				"databaseDown": "Немає зв'язку з PostgreSQL ({{code}})",
 				"databaseVersion": "PostgreSQL {{version}}",
-				"latency": "{{ms}} ms",
-				"migrations_few": "{{count}} migrations applied",
-				"migrations_many": "{{count}} migrations applied",
-				"migrations_one": "{{count}} migration applied",
-				"migrations_other": "{{count}} migrations applied",
-				"realtime": "Live updates",
-				"realtimeConnections_few": "{{count}} open connections on this instance",
-				"realtimeConnections_many": "{{count}} open connections on this instance",
-				"realtimeConnections_one": "{{count}} open connection on this instance",
-				"realtimeConnections_other": "{{count}} open connections on this instance",
-				"realtimeInMemory": "delivered in memory",
-				"realtimeNotStarted": "WebSockets haven't started",
-				"realtimeRedis": "shared with other instances through Redis",
-				"realtimeRedisDown": "Redis is down, so only people on this instance get live updates",
+				"latency": "{{ms}} мс",
+				"migrations_few": "Застосовано {{count}} міграції",
+				"migrations_many": "Застосовано {{count}} міграцій",
+				"migrations_one": "Застосовано {{count}} міграцію",
+				"migrations_other": "Застосовано {{count}} міграції",
+				"realtime": "Оновлення в реальному часі",
+				"realtimeConnections_few": "{{count}} відкриті з'єднання на цьому сервері",
+				"realtimeConnections_many": "{{count}} відкритих з'єднань на цьому сервері",
+				"realtimeConnections_one": "{{count}} відкрите з'єднання на цьому сервері",
+				"realtimeConnections_other": "{{count}} відкритого з'єднання на цьому сервері",
+				"realtimeInMemory": "доставляються в пам'яті",
+				"realtimeNotStarted": "WebSockets ще не запущено",
+				"realtimeRedis": "спільні з іншими серверами через Redis",
+				"realtimeRedisDown": "Redis не працює, тож оновлення в реальному часі отримують лише люди на цьому сервері",
 				"redis": "Redis",
-				"redisDown": "Can't reach Redis ({{code}})",
+				"redisDown": "Немає зв'язку з Redis ({{code}})",
 				"redisModes": {
 					"cluster": "Cluster",
 					"sentinel": "Sentinel",
-					"standalone": "Standalone"
+					"standalone": "Окремий сервер"
 				},
-				"redisNotConfigured": "Set REDIS_URL to share live updates across API instances.",
-				"redisOk": "{{mode}}, reachable",
-				"storage": "File storage",
-				"storageDown": "Can't reach the bucket ({{code}})",
-				"storageIncomplete": "Some S3 settings are missing, so uploads are off.",
-				"storageNotConfigured": "Set S3_ENDPOINT and S3_BUCKET to turn on uploads.",
-				"storageOk": "Bucket reachable",
-				"storageWarning": "Can't check the bucket with these credentials ({{code}}).",
-				"title": "Instance",
-				"version": "Kaneo version",
-				"versionUnknown": "Unknown"
+				"redisNotConfigured": "Задайте REDIS_URL, щоб оновлення в реальному часі працювали між серверами API.",
+				"redisOk": "{{mode}}, доступний",
+				"storage": "Сховище файлів",
+				"storageDown": "Немає зв'язку з бакетом ({{code}})",
+				"storageIncomplete": "Бракує деяких налаштувань S3, тому завантаження файлів вимкнено.",
+				"storageNotConfigured": "Задайте S3_ENDPOINT і S3_BUCKET, щоб увімкнути завантаження файлів.",
+				"storageOk": "Бакет доступний",
+				"storageWarning": "З цими обліковими даними не вдається перевірити бакет ({{code}}).",
+				"title": "Сервер",
+				"version": "Версія Kaneo",
+				"versionUnknown": "Невідомо"
 			},
 			"integrations": {
-				"available": "Available",
-				"connectedProjects_few": "Connected in {{count}} projects",
-				"connectedProjects_many": "Connected in {{count}} projects",
-				"connectedProjects_one": "Connected in {{count}} project",
-				"connectedProjects_other": "Connected in {{count}} projects",
-				"connectedUnknown": "Project count unavailable",
+				"available": "Доступно",
+				"connectedProjects_few": "Підключено в {{count}} проєктах",
+				"connectedProjects_many": "Підключено в {{count}} проєктах",
+				"connectedProjects_one": "Підключено в {{count}} проєкті",
+				"connectedProjects_other": "Підключено в {{count}} проєкту",
+				"connectedUnknown": "Кількість проєктів невідома",
 				"instanceSetup": {
-					"down": "GitHub App unavailable",
-					"not_configured": "GitHub App not set up",
-					"ok": "GitHub App set up",
-					"warning": "Some GitHub App settings are missing"
+					"down": "GitHub App недоступний",
+					"not_configured": "GitHub App не налаштовано",
+					"ok": "GitHub App налаштовано",
+					"warning": "Бракує деяких налаштувань GitHub App"
 				},
-				"title": "Integrations"
+				"title": "Інтеграції"
 			},
-			"loadError": "System status could not be loaded.",
-			"refresh": "Refresh",
-			"refreshing": "Checking…",
-			"retry": "Retry",
+			"loadError": "Не вдалося завантажити стан системи.",
+			"refresh": "Оновити",
+			"refreshing": "Перевірка…",
+			"retry": "Спробувати ще раз",
 			"setupStatus": {
-				"down": "Down",
-				"not_configured": "Not configured",
-				"ok": "Configured",
-				"warning": "Incomplete"
+				"down": "Не працює",
+				"not_configured": "Не налаштовано",
+				"ok": "Налаштовано",
+				"warning": "Налаштовано не повністю"
 			},
 			"signIn": {
-				"emailOtpSignIn": "Email sign-in codes",
-				"guestAccess": "Guest access",
-				"off": "Off",
-				"on": "On",
-				"passwordRegistration": "Sign-up with a password",
-				"passwordSignIn": "Email and password sign-in",
-				"registration": "Registration",
-				"title": "Sign-in",
-				"workspaceCreation": "Workspace creation",
-				"customProvider": "OAuth or OpenID Connect"
+				"emailOtpSignIn": "Коди входу на пошту",
+				"guestAccess": "Гостьовий доступ",
+				"off": "Вимк.",
+				"on": "Увімк.",
+				"passwordRegistration": "Реєстрація з паролем",
+				"passwordSignIn": "Вхід за поштою й паролем",
+				"registration": "Реєстрація",
+				"title": "Вхід",
+				"workspaceCreation": "Створення робочих просторів",
+				"customProvider": "OAuth або OpenID Connect"
 			},
 			"status": {
-				"down": "Down",
-				"not_configured": "Not configured",
-				"ok": "Operational",
-				"warning": "Warning"
+				"down": "Не працює",
+				"not_configured": "Не налаштовано",
+				"ok": "Працює",
+				"warning": "Попередження"
 			},
-			"title": "System",
+			"title": "Система",
 			"toast": {
-				"testEmailError": "The test email could not be sent.",
-				"testEmailSent": "Test email sent to {{to}}"
+				"testEmailError": "Не вдалося надіслати тестовий лист.",
+				"testEmailSent": "Тестовий лист надіслано на {{to}}"
 			}
 		},
 		"adminOverview": {
-			"activeUsers": "Active (30 days)",
-			"archivedWorkspaces": "Archived",
-			"configurationWarnings": "Configuration warnings",
-			"disabledUsers": "Disabled users",
-			"loadError": "Could not load the overview.",
-			"noActions": "No administrative actions",
-			"noUsers": "No users",
-			"recentActions": "Recent administrative actions",
-			"recentUsers": "Recent users",
-			"services": "Services",
-			"title": "Overview",
-			"totalUsers": "Total users",
-			"viewAuditLog": "View audit log",
-			"viewSystem": "View system",
-			"viewUsers": "View users",
+			"activeUsers": "Активні (30 днів)",
+			"archivedWorkspaces": "Архівовано",
+			"configurationWarnings": "Попередження щодо налаштувань",
+			"disabledUsers": "Деактивовані користувачі",
+			"loadError": "Не вдалося завантажити огляд.",
+			"noActions": "Немає адміністративних дій",
+			"noUsers": "Немає користувачів",
+			"recentActions": "Останні адміністративні дії",
+			"recentUsers": "Нові користувачі",
+			"services": "Служби",
+			"title": "Огляд",
+			"totalUsers": "Усього користувачів",
+			"viewAuditLog": "Переглянути журнал дій",
+			"viewSystem": "Переглянути систему",
+			"viewUsers": "Переглянути користувачів",
 			"warnings": {
-				"noSecondAdmin": "Only one administrator has access. Assign a second admin in User management.",
-				"redisUnreachable": "Redis is unavailable. Check the connection.",
-				"registrationWithoutEmail": "Registration is open without email. Configure SMTP or set DISABLE_REGISTRATION=true.",
-				"smtpNotConfigured": "Email is not configured. Set SMTP_HOST and SMTP_FROM.",
-				"smtpUnreachable": "Email is unavailable. Check SMTP settings.",
-				"storageIncomplete": "Storage setup is incomplete. Check S3 settings.",
-				"storageUnreachable": "Storage needs attention. Check S3 access."
+				"noSecondAdmin": "Доступ має лише один адміністратор. Призначте другого в керуванні користувачами.",
+				"redisUnreachable": "Redis недоступний. Перевірте з'єднання.",
+				"registrationWithoutEmail": "Реєстрація відкрита без пошти. Налаштуйте SMTP або задайте DISABLE_REGISTRATION=true.",
+				"smtpNotConfigured": "Пошту не налаштовано. Задайте SMTP_HOST і SMTP_FROM.",
+				"smtpUnreachable": "Пошта недоступна. Перевірте налаштування SMTP.",
+				"storageIncomplete": "Сховище налаштовано не повністю. Перевірте налаштування S3.",
+				"storageUnreachable": "Сховище потребує уваги. Перевірте доступ до S3."
 			},
-			"workspaces": "Workspaces"
+			"workspaces": "Робочі простори"
 		},
 		"adminRoles": {
-			"actions": "Actions for {{name}}",
-			"allPermissions": "All permissions",
-			"builtIn": "Built-in",
-			"create": "New role",
-			"deleteTitle": "Delete {{name}}?",
+			"actions": "Дії для {{name}}",
+			"allPermissions": "Усі дозволи",
+			"builtIn": "Вбудована",
+			"create": "Нова роль",
+			"deleteTitle": "Видалити {{name}}?",
 			"dialog": {
-				"create": "Create role",
-				"createTitle": "New role",
-				"editTitle": "Edit role",
-				"name": "Name",
-				"nameHint": "Use 2–32 lowercase letters, digits, or hyphens, starting with a letter.",
-				"save": "Save"
+				"create": "Створити роль",
+				"createTitle": "Нова роль",
+				"editTitle": "Редагувати роль",
+				"name": "Ім'я",
+				"nameHint": "2–32 малі латинські літери, цифри або дефіси; першою має бути літера.",
+				"save": "Зберегти"
 			},
-			"edit": "Edit",
+			"edit": "Редагувати",
 			"groups": {
-				"instance": "Instance",
-				"users": "Users",
-				"workspaces": "Workspaces"
+				"instance": "Сервер",
+				"users": "Користувачі",
+				"workspaces": "Робочі простори"
 			},
-			"listTitle": "All roles",
-			"loadError": "Roles could not be loaded.",
-			"noPermissions": "No permissions",
-			"permissionCount_few": "{{count}} permissions",
-			"permissionCount_many": "{{count}} permissions",
-			"permissionCount_one": "{{count}} permission",
-			"permissionCount_other": "{{count}} permissions",
+			"listTitle": "Усі ролі",
+			"loadError": "Не вдалося завантажити ролі.",
+			"noPermissions": "Без дозволів",
+			"permissionCount_few": "{{count}} дозволи",
+			"permissionCount_many": "{{count}} дозволів",
+			"permissionCount_one": "{{count}} дозвіл",
+			"permissionCount_other": "{{count}} дозволу",
 			"permissions": {
-				"auditRead": "View the audit log",
-				"instanceSettings": "Change instance settings",
-				"systemRead": "View system status",
-				"usersApiKeys": "View and revoke API keys",
-				"usersCreate": "Create users",
-				"usersCredentials": "Send password reset and verification emails",
-				"usersDelete": "Delete users",
-				"usersDisable": "Deactivate and reactivate users",
-				"usersRead": "View users",
-				"usersSessions": "View and end sessions",
-				"usersUpdate": "Edit users and their roles",
-				"workspacesArchive": "Archive and restore workspaces",
-				"workspacesDelete": "Delete workspaces",
-				"workspacesManage": "Manage workspace members",
-				"workspacesRead": "View workspaces and members"
+				"auditRead": "Переглядати журнал дій",
+				"instanceSettings": "Змінювати налаштування сервера",
+				"systemRead": "Переглядати стан системи",
+				"usersApiKeys": "Переглядати й відкликати API-ключі",
+				"usersCreate": "Створювати користувачів",
+				"usersCredentials": "Надсилати листи для скидання пароля й підтвердження",
+				"usersDelete": "Видаляти користувачів",
+				"usersDisable": "Деактивувати й знову активувати користувачів",
+				"usersRead": "Переглядати користувачів",
+				"usersSessions": "Переглядати й завершувати сеанси",
+				"usersUpdate": "Редагувати користувачів і їхні ролі",
+				"workspacesArchive": "Архівувати й відновлювати простори",
+				"workspacesDelete": "Видаляти простори",
+				"workspacesManage": "Керувати учасниками просторів",
+				"workspacesRead": "Переглядати робочі простори та учасників"
 			},
-			"title": "Roles",
+			"title": "Ролі",
 			"toast": {
-				"created": "Role created",
-				"deleted": "Role deleted",
-				"error": "The role could not be saved.",
-				"updated": "Role updated"
+				"created": "Роль створено",
+				"deleted": "Роль видалено",
+				"error": "Не вдалося зберегти роль.",
+				"updated": "Роль оновлено"
 			},
-			"userCount_few": "{{count}} users",
-			"userCount_many": "{{count}} users",
-			"userCount_one": "{{count}} user",
-			"userCount_other": "{{count}} users",
-			"viewUsers": "View users"
+			"userCount_few": "{{count}} користувачі",
+			"userCount_many": "{{count}} користувачів",
+			"userCount_one": "{{count}} користувач",
+			"userCount_other": "{{count}} користувача",
+			"viewUsers": "Переглянути користувачів"
 		},
 		"adminSettings": {
-			"defaultRole": "Default role for new users",
-			"general": "General",
-			"instanceName": "Instance name",
-			"instanceUrl": "Instance URL",
-			"instanceUrlMissing": "Set KANEO_CLIENT_URL",
-			"integrations": "Integrations",
-			"loadError": "Couldn't load instance settings.",
-			"lockedByEnv": "Set by {{name}}",
-			"passwordRegistrationEnabled": "Email and password sign-up",
-			"registration": "Registration",
-			"registrationEnabled": "Open registration",
-			"requireEmailVerification": "Require email verification",
-			"requiresSmtp": "Requires SMTP",
-			"signInProviders": "Sign-in providers",
-			"title": "Settings",
+			"defaultRole": "Роль нових користувачів",
+			"general": "Загальні",
+			"instanceName": "Назва сервера",
+			"instanceUrl": "Адреса сервера",
+			"instanceUrlMissing": "Задайте KANEO_CLIENT_URL",
+			"integrations": "Інтеграції",
+			"loadError": "Не вдалося завантажити налаштування сервера.",
+			"lockedByEnv": "Задано змінною {{name}}",
+			"passwordRegistrationEnabled": "Реєстрація за поштою й паролем",
+			"registration": "Реєстрація",
+			"registrationEnabled": "Відкрита реєстрація",
+			"requireEmailVerification": "Вимагати підтвердження пошти",
+			"requiresSmtp": "Потрібен SMTP",
+			"signInProviders": "Способи входу",
+			"title": "Налаштування",
 			"toast": {
-				"error": "Couldn't save settings",
-				"saved": "Settings saved"
+				"error": "Не вдалося зберегти налаштування",
+				"saved": "Налаштування збережено"
 			},
-			"workspaceCreationRestricted": "Only administrators can create workspaces",
-			"workspaces": "Workspaces",
-			"save": "Save"
+			"workspaceCreationRestricted": "Створювати робочі простори можуть лише адміністратори",
+			"workspaces": "Робочі простори",
+			"save": "Зберегти"
 		},
 		"adminWebhooks": {
-			"actions": "Actions for {{url}}",
-			"add": "Add webhook",
-			"attempts_few": "{{count}} attempts",
-			"attempts_many": "{{count}} attempts",
-			"attempts_one": "{{count}} attempt",
-			"attempts_other": "{{count}} attempts",
-			"categories": "Events",
-			"deleteTitle": "Delete webhook?",
-			"deliveries": "Recent deliveries",
-			"disabled": "Disabled",
-			"edit": "Edit webhook",
-			"empty": "No webhooks",
-			"enabled": "Enabled",
+			"actions": "Дії для {{url}}",
+			"add": "Додати вебхук",
+			"attempts_few": "{{count}} спроби",
+			"attempts_many": "{{count}} спроб",
+			"attempts_one": "{{count}} спроба",
+			"attempts_other": "{{count}} спроби",
+			"categories": "Події",
+			"deleteTitle": "Видалити вебхук?",
+			"deliveries": "Останні доставки",
+			"disabled": "Вимкнено",
+			"edit": "Редагувати вебхук",
+			"empty": "Немає вебхуків",
+			"enabled": "Увімкнено",
 			"errors": {
-				"destination": "Destination blocked",
-				"disabled": "Webhook disabled",
-				"http": "HTTP error",
-				"interrupted": "Delivery interrupted",
-				"network": "Connection failed",
-				"response": "Invalid response",
-				"signing": "Signing failed",
-				"timeout": "Timed out"
+				"destination": "Адресу заблоковано",
+				"disabled": "Вебхук вимкнено",
+				"http": "Помилка HTTP",
+				"interrupted": "Доставку перервано",
+				"network": "Не вдалося з'єднатися",
+				"response": "Неправильна відповідь",
+				"signing": "Не вдалося підписати",
+				"timeout": "Час очікування вичерпано"
 			},
-			"failed": "Failed",
+			"failed": "Помилка",
 			"httpStatus": "HTTP {{status}}",
-			"loadError": "Webhooks could not be loaded.",
-			"noDeliveries": "No deliveries",
-			"pending": "Pending",
-			"rotate": "Rotate secret",
-			"rotateTitle": "Rotate signing secret?",
-			"saveError": "The webhook could not be saved.",
-			"secretTitle": "Signing secret — save it now",
-			"sendTest": "Send test",
-			"setup": "Set NOTIFICATION_SECRET_ENCRYPTION_KEY to create webhooks.",
-			"signingSecret": "Signing secret",
-			"succeeded": "Delivered",
-			"testEvent": "Test event",
-			"testQueued": "Test event queued.",
-			"title": "Webhooks",
+			"loadError": "Не вдалося завантажити вебхуки.",
+			"noDeliveries": "Доставок ще не було",
+			"pending": "Очікує",
+			"rotate": "Замінити секрет",
+			"rotateTitle": "Замінити секрет підпису?",
+			"saveError": "Не вдалося зберегти вебхук.",
+			"secretTitle": "Секрет підпису: збережіть його зараз",
+			"sendTest": "Надіслати тест",
+			"setup": "Задайте NOTIFICATION_SECRET_ENCRYPTION_KEY, щоб створювати вебхуки.",
+			"signingSecret": "Секрет підпису",
+			"succeeded": "Доставлено",
+			"testEvent": "Тестова подія",
+			"testQueued": "Тестову подію поставлено в чергу.",
+			"title": "Вебхуки",
 			"url": "URL",
-			"save": "Save"
+			"save": "Зберегти"
 		}
 	},
 	"navigation": {
@@ -3691,8 +3691,8 @@
 				"include": "включає",
 				"exclude": "виключає"
 			},
-			"allCustomFieldValues": "All values",
-			"noCustomFieldValues": "No custom field values",
+			"allCustomFieldValues": "Усі значення",
+			"noCustomFieldValues": "Немає значень власних полів",
 			"noValuesUsedYet": "Значення ще не використовувалися"
 		},
 		"gantt": {
@@ -3752,7 +3752,7 @@
 			"merged": "Змерджено",
 			"draft": "Чернетка",
 			"open": "Відкрито",
-			"label": "Pull Request",
+			"label": "Pull request",
 			"count_one": "{{count}} PR",
 			"count_few": "{{count}} PR",
 			"count_many": "{{count}} PR",
@@ -3931,9 +3931,9 @@
 			"label": "Активні фільтри",
 			"removeFilter": "Прибрати фільтр «{{name}}»",
 			"noMatches": "Немає завдань, що відповідають пошуку чи фільтрам.",
-			"customFieldsLoading": "Loading custom-field values. Results are shown without custom-field filters.",
-			"customFieldsRefreshError": "Custom-field values could not be refreshed. Results may be out of date.",
-			"customFieldsUnavailable": "Custom-field values could not be loaded. Results are shown without custom-field filters."
+			"customFieldsLoading": "Значення власних полів завантажуються. Результати показано без фільтрів за власними полями.",
+			"customFieldsRefreshError": "Не вдалося оновити значення власних полів. Результати можуть бути застарілими.",
+			"customFieldsUnavailable": "Не вдалося завантажити значення власних полів. Результати показано без фільтрів за власними полями."
 		},
 		"filterMenu": {
 			"addFilter": "Додати фільтр…",
@@ -4140,10 +4140,10 @@
 			"loadError": "Не вдалося завантажити ваші завдання."
 		},
 		"archived": {
-			"description": "Contact an administrator to restore access.",
-			"manage": "Manage workspaces",
-			"otherWorkspaces": "Go to workspaces",
-			"title": "Workspace archived"
+			"description": "Щоб відновити доступ, зверніться до адміністратора.",
+			"manage": "Керувати просторами",
+			"otherWorkspaces": "До робочих просторів",
+			"title": "Робочий простір архівовано"
 		}
 	},
 	"team": {
@@ -4242,7 +4242,7 @@
 		"taskDetail": {
 			"labels": "Мітки",
 			"externalLinks": "Зовнішні посилання",
-			"pullRequestFallback": "Pull Request",
+			"pullRequestFallback": "Pull request",
 			"issueFallback": "Задача",
 			"prStatusMerged": "Змерджено",
 			"prStatusDraft": "Чернетка",
@@ -4561,13 +4561,13 @@
 				"passwordHint": "Щонайменше 8 символів"
 			},
 			"unlock": {
-				"buy": "Unlock for {{price}}",
-				"buyNoPrice": "Unlock",
-				"message": "Signing in to Kaneo Cloud is always included. Connecting the app to a self-hosted server is a one-time purchase that supports Kaneo's development.",
-				"nothingToRestore": "No earlier purchase was found for this store account.",
-				"restore": "Restore purchase",
-				"title": "Connect your own server",
-				"unavailable": "Purchases aren't available right now. Try again later."
+				"buy": "Розблокувати за {{price}}",
+				"buyNoPrice": "Розблокувати",
+				"message": "Вхід у Kaneo Cloud завжди безкоштовний. Підключення застосунку до власного сервера — це одноразова покупка, яка підтримує розвиток Kaneo.",
+				"nothingToRestore": "Для цього облікового запису магазину попередніх покупок не знайдено.",
+				"restore": "Відновити покупку",
+				"title": "Підключіть власний сервер",
+				"unavailable": "Покупки зараз недоступні. Спробуйте пізніше."
 			}
 		},
 		"invitations": {
@@ -4735,13 +4735,13 @@
 			"link": "Посилання",
 			"insertImage": "Вставити зображення",
 			"attachment": "Вкладення",
-			"applyLink": "Apply",
-			"checklist": "Checklist",
+			"applyLink": "Застосувати",
+			"checklist": "Чек-лист",
 			"linkUrl": "URL",
-			"numberedList": "Numbered list",
-			"quote": "Quote",
-			"removeLink": "Remove link",
-			"hideKeyboard": "Hide keyboard"
+			"numberedList": "Нумерований список",
+			"quote": "Цитата",
+			"removeLink": "Видалити посилання",
+			"hideKeyboard": "Сховати клавіатуру"
 		},
 		"composer": {
 			"reply": "Відповісти {{name}}…",
@@ -5174,19 +5174,19 @@
 				"signOutOthers": "Вийти на інших пристроях"
 			},
 			"deleteAccount": {
-				"confirm": "Delete account",
-				"confirmLabel": "Type {{email}} to confirm",
-				"description": "Permanently delete your account and its data.",
-				"modalDescription": "This permanently deletes your account and cannot be undone. Workspaces only you belong to are deleted with it. Elsewhere, your tasks stay and become unassigned, and your comments are removed.",
-				"modalTitle": "Delete your account?",
-				"noPassword": "This account has no password. Leave the field empty.",
-				"password": "Password",
-				"passwordHint": "Leave empty if you sign in without a password.",
-				"sectionTitle": "Danger zone",
-				"sessionTooOld": "For your security, enter your password, or sign out and sign in again before deleting your account.",
-				"success": "Your account was deleted",
-				"title": "Delete account",
-				"wrongPassword": "That password is not correct."
+				"confirm": "Видалити обліковий запис",
+				"confirmLabel": "Введіть {{email}} для підтвердження",
+				"description": "Назавжди видалити ваш обліковий запис і його дані.",
+				"modalDescription": "Обліковий запис буде видалено назавжди, без можливості відновлення. Робочі простори, де немає інших учасників, буде видалено разом із ним. В інших просторах ваші завдання залишаться без виконавця, а коментарі буде видалено.",
+				"modalTitle": "Видалити обліковий запис?",
+				"noPassword": "Цей обліковий запис не має пароля. Залиште поле порожнім.",
+				"password": "Пароль",
+				"passwordHint": "Залиште порожнім, якщо входите без пароля.",
+				"sectionTitle": "Небезпечна зона",
+				"sessionTooOld": "Для безпеки введіть пароль або вийдіть і знову увійдіть, перш ніж видаляти обліковий запис.",
+				"success": "Ваш обліковий запис видалено",
+				"title": "Видалити обліковий запис",
+				"wrongPassword": "Неправильний пароль."
 			}
 		},
 		"notificationSettings": {
@@ -5250,7 +5250,7 @@
 				"title": "Загальні",
 				"name": "Назва",
 				"description": "Опис",
-				"slug": "Slug: <mono>{{slug}}</mono>",
+				"slug": "Ідентифікатор: <mono>{{slug}}</mono>",
 				"save": "Зберегти зміни"
 			},
 			"manage": {

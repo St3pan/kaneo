@@ -14,7 +14,7 @@ export function PreviewColumn({
   children,
 }: PreviewColumnProps) {
   return (
-    <div className="flex w-64 shrink-0 flex-col rounded-xl border border-border bg-muted/40 dark:bg-card/90">
+    <div className="flex w-64 shrink-0 flex-col rounded-xl border border-border bg-board-column">
       <div className="flex items-center gap-2 border-border border-b px-3 py-2 text-muted-foreground">
         {icon}
         <span className="font-medium text-[13px] text-foreground">{name}</span>

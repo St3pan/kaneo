@@ -289,8 +289,8 @@ function BacklogListView({
       onDragEnd={handleDragEnd}
       modifiers={[snapCenterToCursor]}
     >
-      <div className="w-full h-full overflow-auto bg-muted/20">
-        <div className="divide-y divide-border/50">
+      <div className="w-full h-full overflow-auto">
+        <div className="divide-y divide-border/50 bg-card">
           <BacklogSection
             sectionId="planned"
             title={t("tasks:backlog.sections.planned")}

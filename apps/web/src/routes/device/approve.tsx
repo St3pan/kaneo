@@ -167,7 +167,7 @@ function DeviceApprovePage() {
         })}
       >
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col items-center gap-2 rounded-xl border border-border px-4 py-5 dark:bg-input/16">
+          <div className="flex flex-col items-center gap-2 rounded-xl border border-border px-4 py-5 dark:bg-input-fill/16">
             <p className="text-muted-foreground text-xs">
               {t("auth:device.approve.matchCode")}
             </p>

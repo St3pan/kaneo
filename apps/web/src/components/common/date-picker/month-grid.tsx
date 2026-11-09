@@ -33,7 +33,7 @@ const classNames = {
 const modifiersClassNames = {
   past: "not-data-selected:*:text-muted-foreground/70",
   limit:
-    "*:after:absolute *:after:bottom-0.5 *:after:start-1/2 *:after:size-1 *:after:-translate-x-1/2 *:after:rounded-full *:after:bg-muted-foreground data-selected:*:after:bg-background",
+    "*:after:absolute *:after:bottom-0.5 *:after:start-1/2 *:after:size-1 *:after:-translate-x-1/2 *:after:rounded-full *:after:bg-muted-foreground data-selected:*:after:bg-card",
   highlighted:
     "not-data-selected:*:bg-primary/12 not-data-selected:*:font-medium not-data-selected:*:text-primary",
 };

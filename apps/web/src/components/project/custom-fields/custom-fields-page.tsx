@@ -52,7 +52,7 @@ export function CustomFieldsPage({ projectId }: CustomFieldsPageProps) {
         canEdit ? (
           <Button
             type="button"
-            variant="outline"
+            variant="create"
             size="sm"
             onClick={() => openDialog(null)}
           >

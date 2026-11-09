@@ -23,7 +23,7 @@ export function WorkspacePreview({
           workspaceName={workspaceName}
           projectName={projectName}
         />
-        <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-s-xl border border-border border-e-0 bg-background">
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-s-xl border border-border border-e-0 bg-card">
           <div className="flex h-11 shrink-0 items-center gap-2.5 border-border border-b px-4 text-[13px] text-muted-foreground">
             <PanelLeft className="size-3.5" />
             <span className="h-3.5 w-px bg-border" />

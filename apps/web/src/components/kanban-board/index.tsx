@@ -278,7 +278,7 @@ function KanbanBoard({
 
   if (!project?.columns) {
     return (
-      <div className="flex h-full w-full flex-col bg-linear-to-b from-muted/25 to-background">
+      <div className="flex h-full w-full flex-col">
         <header className="mb-6 mt-6 space-y-6 shrink-0 px-6">
           <div className="flex items-center justify-between">
             <div className="w-48 h-8 bg-muted/50 rounded-md animate-pulse" />
@@ -290,7 +290,7 @@ function KanbanBoard({
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={`kanban-column-skeleton-${i}`}
-                className="h-full min-w-[min(20rem,calc(100vw-4.5rem))] w-full flex-1 rounded-xl border border-border/70 bg-card"
+                className="h-full min-w-[min(20rem,calc(100vw-4.5rem))] w-full flex-1 rounded-xl border border-border/70 bg-board-column"
               >
                 <div className="px-4 py-3 flex items-center justify-between">
                   <div className="w-24 h-5 bg-muted/50 rounded animate-pulse" />
@@ -338,11 +338,7 @@ function KanbanBoard({
       onDragEnd={handleDragEnd}
       onDragCancel={resetDrag}
     >
-      <div
-        className={cn("flex h-full w-full flex-col", {
-          "bg-linear-to-b from-muted/20 to-background": !background,
-        })}
-      >
+      <div className="flex h-full w-full flex-col">
         <div
           className={cn(
             "min-h-0 flex-1 scroll-px-4 overflow-x-auto [-webkit-overflow-scrolling:touch]",

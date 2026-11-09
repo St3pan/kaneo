@@ -3,6 +3,9 @@ import { getDueDateStatus, isTaskCompleted } from "./due-date-status";
 
 const YESTERDAY = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 const TOMORROW = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+const IN_TWO_DAYS = new Date(
+  Date.now() + 2 * 24 * 60 * 60 * 1000,
+).toISOString();
 const NEXT_MONTH = new Date(
   Date.now() + 30 * 24 * 60 * 60 * 1000,
 ).toISOString();
@@ -13,6 +16,11 @@ describe("getDueDateStatus", () => {
     expect(getDueDateStatus(TOMORROW)).toBe("due-soon");
     expect(getDueDateStatus(NEXT_MONTH)).toBe("far-future");
     expect(getDueDateStatus(null)).toBe("no-due-date");
+  });
+
+  it("keeps due soon to today and tomorrow", () => {
+    expect(getDueDateStatus(new Date().toISOString())).toBe("due-soon");
+    expect(getDueDateStatus(IN_TWO_DAYS)).toBe("far-future");
   });
 
   it("never warns about a completed task, however overdue", () => {

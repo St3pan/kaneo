@@ -7,11 +7,11 @@ export function ShellFrame() {
   );
 
   return (
-    <div aria-hidden="true" className="flex h-svh w-full bg-sidebar">
+    <div aria-hidden="true" className="flex h-svh w-full bg-background">
       {sidebarOpen ? <div className="hidden w-60 shrink-0 md:block" /> : null}
       <div
         className={cn(
-          "m-2 flex-1 rounded-xl border border-border/80 bg-background shadow-sm/5",
+          "m-2 flex-1 rounded-xl border border-border bg-card",
           sidebarOpen && "md:ms-0",
         )}
       />

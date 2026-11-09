@@ -112,6 +112,7 @@ export function useFilterSubjects({
         count: counts.assignee[member.userId],
         icon: (
           <MemberFilterAvatar
+            userId={member.userId}
             name={member.user?.name}
             image={member.user?.image}
           />

@@ -1,9 +1,9 @@
 import { ArrowRight, Calendar } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { propertyChipClass } from "@/components/custom-fields/property-chip-class";
-import icons from "@/constants/project-icons";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import { cn } from "@/lib/cn";
-import { getColumnIcon } from "@/lib/column";
+import { StatusBadge } from "@/components/common/status-badge";
 import { formatDateShort } from "@/lib/format";
 import { getPriorityLabel } from "@/lib/i18n/domain";
 import { getPriorityIcon } from "@/lib/priority";
@@ -17,7 +17,7 @@ import { TaskRecurrenceBadge } from "../task-recurrence-badge";
 import TaskStartDatePopover from "../task-start-date-popover";
 import TaskStatusPopover from "../task-status-popover";
 import { AssigneeAvatar } from "./assignee-avatar";
-import { dueDateTextClass } from "./due-date-text-class";
+import { dueDateChipClass, dueDateTextClass } from "./due-date-text-class";
 import { LabelsValue } from "./labels-value";
 import { useTaskProperties } from "./use-task-properties";
 
@@ -47,11 +47,13 @@ export function PropertyChips({
 
   if (!task) return null;
 
-  const ProjectIcon =
-    icons[project?.icon as keyof typeof icons] || icons.Layout;
   const projectContent = (
     <>
-      <ProjectIcon className="text-muted-foreground" />
+      <ProjectIconTile
+        projectId={projectId}
+        icon={project?.icon}
+        className="size-4 rounded-[4px] [&>svg]:size-2.5!"
+      />
       <span className="max-w-40 truncate">{project?.name}</span>
     </>
   );
@@ -60,9 +62,17 @@ export function PropertyChips({
     <div className={cn("flex flex-col gap-1.5", className)}>
       <div className="flex flex-wrap items-center gap-1.5">
         <TaskStatusPopover task={task}>
-          <button type="button" data-task-action="status" className={chip}>
-            {getColumnIcon(task.status ?? "", status.isFinal, status.icon)}
-            <span className="truncate">{status.label}</span>
+          <button
+            type="button"
+            data-task-action="status"
+            className={cn(chip, "px-1.5")}
+          >
+            <StatusBadge
+              status={task.status ?? ""}
+              label={status.label}
+              isFinal={status.isFinal}
+              icon={status.icon}
+            />
           </button>
         </TaskStatusPopover>
         <TaskPriorityPopover task={task}>
@@ -80,6 +90,7 @@ export function PropertyChips({
             className={cn(chip, "pl-1.5")}
           >
             <AssigneeAvatar
+              userId={task.userId}
               name={assignee?.user?.name || task.assigneeName}
               image={assignee?.user?.image}
               assigned={Boolean(task.userId)}
@@ -120,14 +131,16 @@ export function PropertyChips({
               data-task-action="dueDate"
               className={cn(
                 dateButton,
-                task.dueDate
-                  ? dueDateTextClass[dueStatus]
-                  : "text-muted-foreground",
+                task.dueDate ? undefined : "text-muted-foreground",
               )}
             >
-              {task.dueDate
-                ? formatDateShort(task.dueDate)
-                : t("tasks:dueDate.label")}
+              {task.dueDate ? (
+                <span className={dueDateChipClass[dueStatus]}>
+                  {formatDateShort(task.dueDate)}
+                </span>
+              ) : (
+                t("tasks:dueDate.label")
+              )}
               <TaskRecurrenceBadge task={task} asText />
             </button>
           </TaskDueDatePopover>

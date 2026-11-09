@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { StatusBadge } from "@/components/common/status-badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogClose, DialogPopup } from "@/components/ui/dialog";
 import { usePublicTaskDescription } from "@/hooks/queries/task/use-public-task-description";
@@ -104,16 +105,19 @@ export function PublicTaskDetailModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogPopup className="w-full max-w-4xl max-h-[85vh] p-0">
-        <div className="bg-background border border-border rounded-xl flex flex-col max-h-[85vh] shadow-lg">
+        <div className="bg-card border border-border rounded-xl flex flex-col max-h-[85vh] shadow-lg">
           <div className="flex items-center justify-between px-4 py-3 border-b border-border/70 shrink-0">
             <div className="flex items-center gap-2 min-w-0 flex-1">
               <span className="text-sm font-medium text-muted-foreground shrink-0">
                 {projectSlug.toUpperCase()}-{task.number}
               </span>
               {statusLabel ? (
-                <span className="text-xs text-muted-foreground px-1.5 py-0.5 bg-muted rounded-md shrink-0">
-                  {statusLabel}
-                </span>
+                <StatusBadge
+                  status={task.status}
+                  label={statusLabel}
+                  isFinal={taskIsCompleted}
+                  className="shrink-0"
+                />
               ) : null}
             </div>
             <DialogClose
@@ -165,7 +169,10 @@ export function PublicTaskDetailModal({
                         src={task.assigneeImage ?? ""}
                         alt={task.assigneeName ?? ""}
                       />
-                      <AvatarFallback className="text-[10px]">
+                      <AvatarFallback
+                        colorSeed={task.userId ?? task.assigneeName}
+                        className="text-[10px]"
+                      >
                         {getInitials(task.assigneeName)}
                       </AvatarFallback>
                     </Avatar>

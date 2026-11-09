@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useUpdateTask } from "@/hooks/mutations/task/use-update-task";
 import { cn } from "@/lib/cn";
 import { toast } from "@/lib/toast";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import type Task from "@/types/task";
 
 const CLICK_MOVE_THRESHOLD_PX = 4;
@@ -28,6 +30,7 @@ type GanttTaskBarProps = {
   };
   pixelsPerDay: number;
   isMobile?: boolean;
+  isFinal?: boolean;
   onOpenTask: () => void;
 };
 
@@ -60,6 +63,7 @@ export function GanttTaskBar({
   timeline,
   pixelsPerDay,
   isMobile = false,
+  isFinal = false,
   onOpenTask,
 }: GanttTaskBarProps) {
   const { t } = useTranslation();
@@ -310,8 +314,11 @@ export function GanttTaskBar({
       }}
     >
       <div
-        style={{ gridColumn: `${lineStart} / ${lineEnd}` }}
-        className="group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-primary/25 bg-background text-left text-sm font-medium leading-none text-foreground shadow-sm transition-colors hover:border-primary/40 sm:h-11 sm:min-h-0"
+        style={{
+          ...toneStyle(getStatusTone(task.status, isFinal)),
+          gridColumn: `${lineStart} / ${lineEnd}`,
+        }}
+        className="group pointer-events-auto relative mx-1 flex min-h-[44px] min-w-0 items-stretch overflow-hidden rounded-md border border-(--tone) bg-(--tone) text-left text-sm font-medium leading-none text-(--tone-foreground) transition-colors sm:h-11 sm:min-h-0"
       >
         {showResizeHandles && (
           <button
@@ -320,7 +327,7 @@ export function GanttTaskBar({
             disabled={!startIsVisible}
             onPointerDown={handleResizeLeftPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-r border-(--tone-foreground)/20 bg-(--tone-foreground)/15 hover:bg-(--tone-foreground)/25",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}
@@ -338,7 +345,7 @@ export function GanttTaskBar({
             }
           }}
         >
-          <div className="absolute inset-0 z-0 bg-primary/12 transition-colors group-hover:bg-primary/18" />
+          <div className="absolute inset-0 z-0 transition-colors group-hover:bg-(--tone-foreground)/10" />
           <span
             className={cn(
               "relative z-10 block truncate",
@@ -355,7 +362,7 @@ export function GanttTaskBar({
             disabled={!endIsVisible}
             onPointerDown={handleResizeRightPointerDown}
             className={cn(
-              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-primary/15 bg-primary/8 hover:bg-primary/18",
+              "relative z-20 shrink-0 cursor-ew-resize touch-none border-l border-(--tone-foreground)/20 bg-(--tone-foreground)/15 hover:bg-(--tone-foreground)/25",
               "min-h-[44px] w-6 sm:min-h-0 sm:w-2",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
             )}

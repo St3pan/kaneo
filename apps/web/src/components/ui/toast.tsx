@@ -146,7 +146,7 @@ function Toasts({ position = "bottom-right" }: { position: ToastPosition }) {
                         className={cn(
                           data?.icon
                             ? "text-muted-foreground"
-                            : "in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning in-data-[type=loading]:opacity-80",
+                            : "in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning-foreground in-data-[type=loading]:opacity-80",
                         )}
                       />
                     </div>
@@ -243,7 +243,7 @@ function AnchoredToasts() {
                           className="[&>svg]:h-lh [&>svg]:w-4 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                           data-slot="toast-icon"
                         >
-                          <Icon className="in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning in-data-[type=loading]:opacity-80" />
+                          <Icon className="in-data-[type=loading]:animate-spin in-data-[type=error]:text-destructive in-data-[type=info]:text-info in-data-[type=success]:text-success in-data-[type=warning]:text-warning-foreground in-data-[type=loading]:opacity-80" />
                         </div>
                       )}
 

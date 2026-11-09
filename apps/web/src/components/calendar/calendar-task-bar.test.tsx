@@ -1,6 +1,7 @@
 import enUS from "@i18n/en-US.json";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vite-plus/test";
+import { getStatusTone } from "@/lib/tone/status-tone";
 import CalendarTaskBar from "./calendar-task-bar";
 
 afterEach(() => {
@@ -91,12 +92,12 @@ describe("CalendarTaskBar", () => {
   });
 
   it.each([
-    ["to-do", "bg-slate-500/15"],
-    ["in-progress", "bg-blue-500/15"],
-    ["in-review", "bg-amber-500/15"],
-    ["done", "bg-emerald-500/15"],
-    ["custom-status", "bg-primary/12"],
-  ])("uses the %s status color", (status, expectedClass) => {
+    ["to-do", "var(--status-todo)"],
+    ["in-progress", "var(--status-in-progress)"],
+    ["in-review", "var(--status-in-review)"],
+    ["done", "var(--status-done)"],
+    ["custom-status", getStatusTone("custom-status").color],
+  ])("uses the %s status color", (status, expectedTone) => {
     render(
       <CalendarTaskBar
         segment={{
@@ -110,6 +111,25 @@ describe("CalendarTaskBar", () => {
 
     const taskBar = screen.getByRole("button");
     expect(taskBar).toHaveAttribute("data-task-status", status);
-    expect(taskBar).toHaveClass(expectedClass);
+    expect(taskBar.style.getPropertyValue("--tone")).toBe(expectedTone);
+    expect(taskBar).toHaveClass("bg-(--tone)", "text-(--tone-foreground)");
+  });
+
+  it("uses the done colour for a custom final column", () => {
+    render(
+      <CalendarTaskBar
+        segment={{
+          ...segment,
+          task: { ...segment.task, status: "shipped" },
+        }}
+        isFinal
+        projectSlug="KAN"
+        onOpenTask={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByRole("button").style.getPropertyValue("--tone")).toBe(
+      "var(--status-done)",
+    );
   });
 });

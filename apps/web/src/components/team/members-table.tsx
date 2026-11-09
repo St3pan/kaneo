@@ -20,7 +20,6 @@ import useGetMyProjectAccess from "@/hooks/queries/workspace-users/use-get-my-pr
 import useGetWorkspaceProjectAccess from "@/hooks/queries/workspace-users/use-get-workspace-project-access";
 import { useCopyInvitationLink } from "@/hooks/use-copy-invitation-link";
 import { useWorkspacePermission } from "@/hooks/use-workspace-permission";
-import { cn } from "@/lib/cn";
 import { formatDateMedium } from "@/lib/format";
 import { getInitials } from "@/lib/get-initials";
 import { toast } from "@/lib/toast";
@@ -71,32 +70,11 @@ type Props = {
   users: WorkspaceUser[];
 };
 
-// Stable per-user pastel for the avatar fallback. Picks one of a curated set
-// of Tailwind tone pairs from a cheap string hash so the same user keeps the
-// same color across re-renders without server-side state.
-const AVATAR_TONES = [
-  "bg-rose-500/15 text-rose-600 dark:text-rose-300",
-  "bg-amber-500/15 text-amber-600 dark:text-amber-300",
-  "bg-sky-500/15 text-sky-600 dark:text-sky-300",
-  "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300",
-  "bg-violet-500/15 text-violet-600 dark:text-violet-300",
-  "bg-indigo-500/15 text-indigo-600 dark:text-indigo-300",
-] as const;
-
 // Names that are NOT "truly custom": viewer/member/admin are seeded as
 // editable workspace_role rows on every workspace creation, and owner is a
 // static built-in. The Select already lists them as built-ins, so we filter
 // them out of the custom-roles tail to avoid duplicate options.
 const RESERVED_ROLE_NAMES = new Set<string>([...DEFAULT_ROLE_NAMES, "owner"]);
-
-function toneFor(value: string): string {
-  let hash = 0;
-  for (let i = 0; i < value.length; i += 1) {
-    hash = (hash << 5) - hash + value.charCodeAt(i);
-    hash |= 0;
-  }
-  return AVATAR_TONES[Math.abs(hash) % AVATAR_TONES.length];
-}
 
 function capitalize(value: string): string {
   if (!value) return value;
@@ -266,17 +244,19 @@ function MembersTable({ workspaceId, invitations, users }: Props) {
               !(managerLimited && access.projectAccess === "all");
             const accessLabel = describeAccess(access);
             const memberName = member.user.name || member.user.email;
-            const tone = toneFor(member.user.email);
             return (
               <TableRow key={member.user.email}>
                 <TableCell className="ps-6 py-3">
                   <div className="flex items-center gap-3">
-                    <Avatar className={cn("size-8", tone)}>
+                    <Avatar className="size-8">
                       <AvatarImage
                         src={member.user.image ?? ""}
                         alt={member.user.name ?? ""}
                       />
-                      <AvatarFallback className="bg-transparent text-[11px] font-medium">
+                      <AvatarFallback
+                        colorSeed={member.userId}
+                        className="text-[11px] font-medium"
+                      >
                         {getInitials(member.user.name)}
                       </AvatarFallback>
                     </Avatar>

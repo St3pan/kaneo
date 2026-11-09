@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import icons from "@/constants/project-icons";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import getColumns from "@/fetchers/column/get-columns";
 import { useMoveTask } from "@/hooks/mutations/task/use-move-task";
 import { useGetColumns } from "@/hooks/queries/column/use-get-columns";
@@ -96,15 +96,17 @@ export default function TaskMovePopover({
             key="projects"
             label={t("tasks:move.title")}
             placeholder={t("tasks:move.projectPlaceholder")}
-            options={destinations.map((project) => {
-              const ProjectIcon =
-                icons[project.icon as keyof typeof icons] || icons.Layout;
-              return {
-                value: project.id,
-                label: project.name,
-                icon: <ProjectIcon className="text-muted-foreground" />,
-              };
-            })}
+            options={destinations.map((project) => ({
+              value: project.id,
+              label: project.name,
+              icon: (
+                <ProjectIconTile
+                  projectId={project.id}
+                  icon={project.icon}
+                  className="size-4 rounded-[4px] [&>svg]:size-2.5!"
+                />
+              ),
+            }))}
             onSelect={(id) => void pickProject(id)}
           />
         ) : (

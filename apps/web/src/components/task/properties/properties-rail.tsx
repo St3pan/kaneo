@@ -1,7 +1,7 @@
 import { Calendar, CalendarDays } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import icons from "@/constants/project-icons";
-import { getColumnIcon } from "@/lib/column";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
+import { StatusBadge } from "@/components/common/status-badge";
 import { cn } from "@/lib/cn";
 import { formatDateShort } from "@/lib/format";
 import { getPriorityLabel } from "@/lib/i18n/domain";
@@ -16,7 +16,7 @@ import { TaskRecurrenceBadge } from "../task-recurrence-badge";
 import TaskStartDatePopover from "../task-start-date-popover";
 import TaskStatusPopover from "../task-status-popover";
 import { AssigneeAvatar } from "./assignee-avatar";
-import { dueDateTextClass } from "./due-date-text-class";
+import { dueDateChipClass, dueDateTextClass } from "./due-date-text-class";
 import { LabelsValue } from "./labels-value";
 import { PropertyRow } from "./property-row";
 import { PropertyValue } from "./property-value";
@@ -41,11 +41,13 @@ export function PropertiesRail({
 
   if (!task) return null;
 
-  const ProjectIcon =
-    icons[project?.icon as keyof typeof icons] || icons.Layout;
   const projectValue = (
     <>
-      <ProjectIcon className="text-muted-foreground" />
+      <ProjectIconTile
+        projectId={projectId}
+        icon={project?.icon}
+        className="size-4 rounded-[4px] [&>svg]:size-2.5!"
+      />
       <span className="truncate">{project?.name}</span>
     </>
   );
@@ -59,8 +61,12 @@ export function PropertiesRail({
         <PropertyRow label={t("tasks:status.label")}>
           <TaskStatusPopover task={task}>
             <PropertyValue data-task-action="status" shortcutId="changeStatus">
-              {getColumnIcon(task.status ?? "", status.isFinal, status.icon)}
-              <span className="truncate">{status.label}</span>
+              <StatusBadge
+                status={task.status ?? ""}
+                label={status.label}
+                isFinal={status.isFinal}
+                icon={status.icon}
+              />
             </PropertyValue>
           </TaskStatusPopover>
         </PropertyRow>
@@ -83,6 +89,7 @@ export function PropertiesRail({
           <TaskAssigneePopover task={task} workspaceId={workspaceId}>
             <PropertyValue data-task-action="assignee" shortcutId="assignTask">
               <AssigneeAvatar
+                userId={task.userId}
                 name={assignee?.user?.name || task.assigneeName}
                 image={assignee?.user?.image}
                 assigned={Boolean(task.userId)}
@@ -141,7 +148,9 @@ export function PropertiesRail({
                 <span
                   className={cn(
                     "truncate",
-                    !task.dueDate && "text-muted-foreground",
+                    task.dueDate
+                      ? dueDateChipClass[dueStatus]
+                      : "text-muted-foreground",
                   )}
                 >
                   {task.dueDate

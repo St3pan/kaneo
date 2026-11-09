@@ -57,7 +57,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useGetColumns } from "@/hooks/queries/column/use-get-columns";
-import { getColumnIcon } from "@/lib/column";
+import { StatusBadge } from "@/components/common/status-badge";
 import { getStatusDisplayLabel } from "@/lib/i18n/domain";
 import useCreateLabel from "@/hooks/mutations/label/use-create-label";
 import useCreateTask from "@/hooks/mutations/task/use-create-task";
@@ -72,7 +72,8 @@ import { cn } from "@/lib/cn";
 import { uploadDraftAsset } from "@/lib/upload-draft-asset";
 import { formatDateMedium } from "@/lib/format";
 import { getInitials } from "@/lib/get-initials";
-import { resolveLabelColor } from "@/lib/label-color";
+import labelColorPalette from "@/constants/label-colors";
+import { FALLBACK_LABEL_COLOR, resolveLabelColor } from "@/lib/label-color";
 import { getPriorityIcon } from "@/lib/priority";
 import { toast } from "@/lib/toast";
 import { useAutoGrowTextarea } from "@/hooks/use-auto-grow-textarea";
@@ -151,75 +152,10 @@ function CreateTaskModalContent({
 
   const labelColors = useMemo(
     () =>
-      [
-        {
-          value: "gray" as LabelColor,
-          labelKey: "stone" as const,
-          color: "var(--color-stone-500)",
-        },
-        {
-          value: "dark-gray" as LabelColor,
-          labelKey: "slate" as const,
-          color: "var(--color-slate-500)",
-        },
-        {
-          value: "purple" as LabelColor,
-          labelKey: "lavender" as const,
-          color: "var(--color-violet-500)",
-        },
-        {
-          value: "teal" as LabelColor,
-          labelKey: "sage" as const,
-          color: "var(--color-emerald-600)",
-        },
-        {
-          value: "green" as LabelColor,
-          labelKey: "forest" as const,
-          color: "var(--color-green-600)",
-        },
-        {
-          value: "yellow" as LabelColor,
-          labelKey: "amber" as const,
-          color: "var(--color-amber-600)",
-        },
-        {
-          value: "orange" as LabelColor,
-          labelKey: "terracotta" as const,
-          color: "var(--color-orange-600)",
-        },
-        {
-          value: "pink" as LabelColor,
-          labelKey: "rose" as const,
-          color: "var(--color-rose-600)",
-        },
-        {
-          value: "red" as LabelColor,
-          labelKey: "crimson" as const,
-          color: "var(--color-red-600)",
-        },
-        {
-          value: "blue" as LabelColor,
-          labelKey: "ocean" as const,
-          color: "var(--color-blue-600)",
-        },
-        {
-          value: "sky" as LabelColor,
-          labelKey: "sky" as const,
-          color: "var(--color-sky-500)",
-        },
-        {
-          value: "cyan" as LabelColor,
-          labelKey: "lagoon" as const,
-          color: "var(--color-cyan-600)",
-        },
-        {
-          value: "fuchsia" as LabelColor,
-          labelKey: "orchid" as const,
-          color: "var(--color-fuchsia-600)",
-        },
-      ].map(({ labelKey, ...rest }) => ({
-        ...rest,
-        label: t(`common:modals.createTask.labelColors.${labelKey}`),
+      labelColorPalette.map(({ value, key, color }) => ({
+        value: value as LabelColor,
+        color,
+        label: t(`common:modals.createTask.labelColors.${key}`),
       })),
     [t],
   );
@@ -912,14 +848,13 @@ function CreateTaskModalContent({
                   </PopoverContent>
                 </Popover>
               )}
-              <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-accent/50 text-foreground rounded-md text-xs font-medium border border-border">
-                {getColumnIcon(
-                  taskStatus,
-                  initialColumn?.isFinal,
-                  initialColumn?.icon,
-                )}
-                {statusLabel}
-              </div>
+              <StatusBadge
+                status={taskStatus}
+                label={statusLabel}
+                isFinal={initialColumn?.isFinal}
+                icon={initialColumn?.icon}
+                className="h-7.5 gap-1.5 rounded-md px-2.5"
+              />
 
               <Popover open={startDateOpen} onOpenChange={setStartDateOpen}>
                 <PopoverTrigger asChild>
@@ -1013,7 +948,10 @@ function CreateTaskModalContent({
                             src={selectedUser.image ?? ""}
                             alt={selectedUser.name}
                           />
-                          <AvatarFallback className="text-[10px] font-medium border border-border/30">
+                          <AvatarFallback
+                            colorSeed={selectedUser.id}
+                            className="text-[10px] font-medium border border-border/30"
+                          >
                             {getInitials(selectedUser.name)}
                           </AvatarFallback>
                         </Avatar>
@@ -1061,7 +999,10 @@ function CreateTaskModalContent({
                             src={member.image ?? ""}
                             alt={member.name}
                           />
-                          <AvatarFallback className="text-xs font-medium border border-border/30">
+                          <AvatarFallback
+                            colorSeed={member.id}
+                            className="text-xs font-medium border border-border/30"
+                          >
                             {getInitials(member.name)}
                           </AvatarFallback>
                         </Avatar>
@@ -1195,7 +1136,7 @@ function CreateTaskModalContent({
                                 backgroundColor:
                                   labelColors.find(
                                     (c) => c.value === selectedColor,
-                                  )?.color || "var(--color-neutral-400)",
+                                  )?.color || FALLBACK_LABEL_COLOR,
                               }}
                             />
                             <span className="truncate">
@@ -1288,14 +1229,14 @@ function CreateTaskModalContent({
               </Button>
             </div>
           )}
-          <DialogFooter className="flex-shrink-0 border-t border-border bg-background px-6 py-4">
+          <DialogFooter className="flex-shrink-0 border-t border-border bg-card px-6 py-4">
             <div className="flex items-center gap-3 mr-auto">
               <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors">
                 <input
                   type="checkbox"
                   checked={createMore}
                   onChange={(e) => setCreateMore(e.target.checked)}
-                  className="rounded border-border bg-background text-primary focus:ring-ring focus:ring-offset-0 focus:ring-2 transition-[border-color,box-shadow]"
+                  className="rounded border-border bg-card text-primary focus:ring-ring focus:ring-offset-0 focus:ring-2 transition-[border-color,box-shadow]"
                 />
                 {t("common:modals.createTask.createMore")}
               </label>
@@ -1332,6 +1273,7 @@ function CreateTaskModalContent({
                 isPreparingDraft
               }
               aria-busy={isPreparingDraft || isSubmitting}
+              variant="create"
               size="sm"
               className="disabled:opacity-50"
             >

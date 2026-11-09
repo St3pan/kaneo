@@ -27,7 +27,7 @@ export function LayoutSwitch({
     <div
       role="group"
       aria-label={t("tasks:display.layout")}
-      className="grid grid-cols-4 gap-1 rounded-lg border border-border/80 bg-background p-1 dark:bg-input/32"
+      className="grid grid-cols-4 gap-1 rounded-lg border border-border/80 bg-card p-1 dark:bg-input-fill/32"
     >
       {TASK_LAYOUTS.map((layout) => {
         const Icon = layout.icon;
@@ -41,7 +41,7 @@ export function LayoutSwitch({
             className={cn(
               "flex h-13 flex-col items-center justify-center gap-1 rounded-[calc(var(--radius-lg)-5px)] text-xs font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
               active
-                ? "bg-accent text-foreground"
+                ? "bg-primary-tint text-primary-tint-foreground"
                 : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
             )}
           >

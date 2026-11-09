@@ -212,8 +212,7 @@ function TaskRow({
         // button nested in one is an ambiguous control for assistive tech.
         "group/row flex items-stretch border-b border-border/50 transition-colors duration-150",
         (isDragging || isTaskDragging) && "opacity-50",
-        isTaskSelected &&
-          "bg-accent/60 shadow-sm ring-1 ring-inset ring-ring/30",
+        isTaskSelected && "bg-primary-tint ring-1 ring-inset ring-ring/30",
         isTaskFocused && "ring-1 ring-board-card-focus ring-inset",
       )}
     >
@@ -221,7 +220,7 @@ function TaskRow({
         <div
           className={cn(
             "flex shrink-0 items-center pl-3.5",
-            isTaskSelected ? "bg-accent/45" : "group-hover/row:bg-accent/60",
+            isTaskSelected ? "bg-primary-tint" : "group-hover/row:bg-accent",
           )}
         >
           {depth > 0 && (
@@ -273,7 +272,7 @@ function TaskRow({
             className={cn(
               "group relative flex h-10 min-w-0 flex-1 cursor-pointer items-center gap-3 pr-3.5 outline-none transition-colors",
               showToggleColumn ? "pl-2" : "pl-3.5",
-              isTaskSelected ? "bg-accent/45" : "group-hover/row:bg-accent/60",
+              isTaskSelected ? "bg-primary-tint" : "group-hover/row:bg-accent",
             )}
             data-task-id={task.id}
             data-task-row-id={rowId}

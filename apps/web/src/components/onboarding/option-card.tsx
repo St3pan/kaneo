@@ -27,8 +27,8 @@ export function OptionCard({
       className={cn(
         "flex cursor-pointer items-center gap-3.5 rounded-xl border p-3.5 transition-[border-color,background-color] has-focus-visible:ring-2 has-focus-visible:ring-ring",
         checked
-          ? "border-foreground/30 bg-accent"
-          : "border-input bg-background hover:bg-accent/50 dark:bg-input/32",
+          ? "border-foreground/50 bg-accent shadow-[0_0_0_3px_--theme(--color-foreground/8%)]"
+          : "border-input bg-card hover:bg-accent/50 dark:bg-input-fill/32",
       )}
     >
       <input
@@ -62,9 +62,7 @@ export function OptionCard({
               : "border-foreground/20",
           )}
         >
-          {checked ? (
-            <span className="size-1.5 rounded-full bg-background" />
-          ) : null}
+          {checked ? <span className="size-1.5 rounded-full bg-card" /> : null}
         </span>
       )}
     </label>

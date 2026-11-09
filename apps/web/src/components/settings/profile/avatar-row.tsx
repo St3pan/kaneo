@@ -10,6 +10,7 @@ import { ACCEPTED_AVATAR_TYPES } from "@/lib/prepare-avatar-image";
 import { toast } from "@/lib/toast";
 
 type AvatarRowProps = {
+  userId?: string;
   name: string | undefined;
   image: string | null | undefined;
   refetchUser: () => Promise<unknown>;
@@ -17,6 +18,7 @@ type AvatarRowProps = {
 };
 
 export function AvatarRow({
+  userId,
   name,
   image,
   refetchUser,
@@ -75,7 +77,10 @@ export function AvatarRow({
       <div className="flex min-w-0 flex-1 items-center gap-3.5">
         <Avatar className="size-10">
           <AvatarImage src={image ?? ""} alt="" />
-          <AvatarFallback className="border border-border/30 text-xs font-medium">
+          <AvatarFallback
+            colorSeed={userId ?? name}
+            className="border border-border/30 text-xs font-medium"
+          >
             {getInitials(name)}
           </AvatarFallback>
         </Avatar>

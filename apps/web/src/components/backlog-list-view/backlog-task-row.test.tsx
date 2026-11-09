@@ -203,7 +203,7 @@ describe("backlog row subscriptions", () => {
       "task-1",
     ]);
     expect(screen.getByRole("button", { name: /First task/ })).toHaveClass(
-      "bg-accent/45",
+      "bg-primary-tint",
     );
 
     useSortable.mockClear();
@@ -212,7 +212,7 @@ describe("backlog row subscriptions", () => {
       "task-1",
     ]);
     expect(screen.getByRole("button", { name: /First task/ })).not.toHaveClass(
-      "bg-accent/45",
+      "bg-primary-tint",
     );
   });
 

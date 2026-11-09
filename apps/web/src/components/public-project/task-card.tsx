@@ -89,7 +89,10 @@ export function PublicTaskCard({
                 src={task.assigneeImage ?? ""}
                 alt={task.assigneeName ?? ""}
               />
-              <AvatarFallback className="text-[10px] font-medium border border-border/30">
+              <AvatarFallback
+                colorSeed={task.userId ?? task.assigneeName}
+                className="text-[10px] font-medium border border-border/30"
+              >
                 {getInitials(task.assigneeName)}
               </AvatarFallback>
             </Avatar>

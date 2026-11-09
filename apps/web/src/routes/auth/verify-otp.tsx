@@ -184,7 +184,7 @@ function VerifyOtp() {
                   <InputOTPSlot
                     key={slot.id}
                     index={slot.index}
-                    className="h-11 w-full text-base dark:bg-input/32"
+                    className="h-11 w-full text-base dark:bg-input-fill/32"
                   />
                 ))}
               </InputOTPGroup>

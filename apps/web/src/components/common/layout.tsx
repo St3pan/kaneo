@@ -78,7 +78,8 @@ function Layout({ children, className }: LayoutProps) {
         <AppSidebar />
         <SidebarInset
           className={cn(
-            "m-2 flex flex-1 flex-col overflow-auto rounded-xl border border-border/80 bg-background shadow-sm/5",
+            "m-2 flex flex-1 flex-col overflow-auto rounded-xl border border-border bg-card",
+            "md:peer-data-[variant=inset]:peer-data-[state=collapsed]:border-0",
             {
               "before:content-[''] before:absolute before:inset-0 before:bg-cover before:bg-center before:bg-(image:--bg) before:pointer-events-none":
                 background,

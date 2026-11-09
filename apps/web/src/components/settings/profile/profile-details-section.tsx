@@ -12,7 +12,9 @@ import type { ManagedProfileField } from "@/hooks/queries/user/use-managed-profi
 
 type ProfileDetailsSectionProps = {
   form: UseFormReturn<{ name: string }>;
-  user: { name?: string; email?: string; image?: string | null } | undefined;
+  user:
+    | { id?: string; name?: string; email?: string; image?: string | null }
+    | undefined;
   refetchUser: () => Promise<unknown>;
   managedFields: readonly ManagedProfileField[];
 };
@@ -30,6 +32,7 @@ export function ProfileDetailsSection({
     <SettingsSection title={t("settings:informationPage.sectionTitle")}>
       <SettingsCard>
         <AvatarRow
+          userId={user?.id}
           name={user?.name}
           image={user?.image}
           refetchUser={refetchUser}

@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import icons from "@/constants/project-icons";
 import useGetProjects from "@/hooks/queries/project/use-get-projects";
 import { useBoardHoverPrefetch } from "@/hooks/use-board-hover-prefetch";
+import { getPaletteTone } from "@/lib/tone/palette";
 import { SectionHeader } from "./section-header";
 
 type HomeProjectsProps = {
@@ -65,7 +66,7 @@ export function HomeProjects({
             </p>
           </div>
           {onCreateProject ? (
-            <Button size="sm" variant="outline" onClick={onCreateProject}>
+            <Button size="sm" variant="create" onClick={onCreateProject}>
               <Plus />
               {t("workspace:projects.createProject")}
             </Button>
@@ -74,8 +75,6 @@ export function HomeProjects({
       ) : (
         <div className="grid gap-3 sm:grid-cols-3">
           {projects.slice(0, VISIBLE_PROJECTS).map((project) => {
-            const ProjectIcon =
-              icons[project.icon as keyof typeof icons] || icons.Layout;
             const { completionPercentage, totalTasks } = project.statistics;
 
             return (
@@ -87,10 +86,7 @@ export function HomeProjects({
                 className="flex flex-col gap-3.5 rounded-lg border border-border p-3.5 outline-none transition-colors hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="flex items-center gap-2">
-                  <ProjectIcon
-                    aria-hidden="true"
-                    className="size-4 shrink-0 text-muted-foreground"
-                  />
+                  <ProjectIconTile projectId={project.id} icon={project.icon} />
                   <span className="min-w-0 flex-1 truncate font-medium text-foreground text-sm">
                     {project.name}
                   </span>
@@ -100,8 +96,11 @@ export function HomeProjects({
                 </div>
                 <div className="h-1 overflow-hidden rounded-full bg-muted">
                   <div
-                    className="h-full rounded-full bg-foreground/80"
-                    style={{ width: `${completionPercentage}%` }}
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${completionPercentage}%`,
+                      backgroundColor: getPaletteTone(project.id).color,
+                    }}
                   />
                 </div>
                 <span className="text-muted-foreground text-xs">

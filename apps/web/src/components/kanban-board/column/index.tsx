@@ -1,6 +1,8 @@
 import { useDroppable } from "@dnd-kit/core";
 import { cva } from "class-variance-authority";
 import { memo, useState } from "react";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import { useBackgroundStore } from "@/store/background";
 import type { ProjectWithTasks } from "@/types/project";
 import ColumnDropzone from "./column-dropzone";
@@ -18,7 +20,7 @@ type ColumnProps = {
 };
 
 export const columnVariants = cva(
-  "group relative flex h-full min-h-0 w-full flex-col rounded-xl transition-colors duration-150",
+  "group relative flex h-full min-h-0 w-full flex-col rounded-xl border-t-3 border-t-(--tone) transition-colors duration-150",
   {
     defaultVariants: {
       isDropzoneOver: false,
@@ -38,24 +40,22 @@ export const columnVariants = cva(
       {
         isDropzoneOver: false,
         backgroundImage: false,
-        class: "bg-board-lane",
+        class: "border bg-board-column",
       },
       {
         isDropzoneOver: true,
         backgroundImage: false,
-        class: "bg-board-lane ring-2 ring-board-card-ring",
+        class: "border bg-primary-tint border-ring/40 ring-2 ring-ring/30",
       },
       {
         isDropzoneOver: false,
         backgroundImage: true,
-        class:
-          "border border-border/70 bg-background shadow-md before:bg-muted before:dark:bg-card",
+        class: "border bg-board-column",
       },
       {
         isDropzoneOver: true,
         backgroundImage: true,
-        class:
-          "border border-border/70 bg-background ring-2 ring-focus/60 before:bg-accent/60",
+        class: "border bg-primary-tint ring-2 ring-ring/60",
       },
     ],
   },
@@ -82,6 +82,7 @@ function Column({
   return (
     <div
       ref={setNodeRef}
+      style={toneStyle(getStatusTone(column.id, column.isFinal))}
       className={columnVariants({
         isDropzoneOver: isOver,
         backgroundImage: !!background,

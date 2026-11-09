@@ -31,8 +31,12 @@ export function NotificationIcon({ type }: { type: string }) {
       className={cn(
         "flex size-7 shrink-0 items-center justify-center rounded-full",
         type === "task_overdue"
-          ? "bg-destructive/10 text-destructive-foreground"
-          : "bg-muted text-muted-foreground",
+          ? "bg-due-overdue text-due-overdue-foreground"
+          : type === "due_date_reminder"
+            ? "bg-due-soon text-due-soon-foreground"
+            : type === "time_entry_created"
+              ? "bg-timer text-timer-foreground"
+              : "bg-muted text-muted-foreground",
       )}
     >
       <Icon aria-hidden="true" className="size-3.5" />

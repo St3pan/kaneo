@@ -9,7 +9,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import icons from "@/constants/project-icons";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import useGetProject from "@/hooks/queries/project/use-get-project";
 import useGetTask from "@/hooks/queries/task/use-get-task";
 import { HeaderIconButton } from "./header-icon-button";
@@ -39,15 +39,14 @@ export function TaskSheetHeader({
   const { data: task } = useGetTask(taskId);
   const { data: project } = useGetProject({ id: projectId, workspaceId });
   const { copyId } = useTaskCopyActions({ taskId, projectId, workspaceId });
-  const ProjectIcon =
-    icons[project?.icon as keyof typeof icons] || icons.Layout;
 
   return (
     <div className="flex h-11 shrink-0 items-center gap-1 border-border border-b px-2 sm:h-12 sm:gap-2 sm:pr-2.5 sm:pl-5">
       <div className="flex min-w-0 flex-1 items-center gap-1.5 max-sm:justify-center sm:gap-2">
-        <ProjectIcon
-          aria-hidden="true"
-          className="size-4 shrink-0 text-muted-foreground max-sm:hidden"
+        <ProjectIconTile
+          projectId={projectId}
+          icon={project?.icon}
+          className="size-4.5 rounded-[4px] max-sm:hidden [&>svg]:size-3!"
         />
         <span className="truncate font-medium text-[13px] text-muted-foreground">
           {project?.name}

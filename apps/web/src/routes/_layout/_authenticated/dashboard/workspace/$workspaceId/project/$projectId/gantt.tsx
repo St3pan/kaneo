@@ -105,6 +105,16 @@ function RouteComponent() {
     setIsTaskRailOpen(false);
   }, [isMobile]);
 
+  const finalStatuses = useMemo(
+    () =>
+      new Set(
+        project?.columns
+          .filter((column) => column.isFinal)
+          .map((column) => column.id),
+      ),
+    [project],
+  );
+
   const allTasks = useMemo(
     () => [
       ...(project?.columns.flatMap((column) => column.tasks) ?? []),
@@ -277,7 +287,7 @@ function RouteComponent() {
             : undefined
         }
       />
-      <div className="flex h-full min-h-0 flex-col bg-background">
+      <div className="flex h-full min-h-0 flex-col bg-card">
         <div className="border-b border-border/80 px-3 py-2 sm:px-4">
           <h1 className="sr-only">{t("tasks:gantt.title")}</h1>
           <div className="flex flex-wrap items-center gap-2">
@@ -297,7 +307,7 @@ function RouteComponent() {
                 <input
                   type="date"
                   aria-label={t("tasks:gantt.periodStart")}
-                  className="h-9 min-w-0 rounded-md border border-border bg-background px-2 text-base sm:h-8 sm:text-sm"
+                  className="h-9 min-w-0 rounded-md border border-border bg-card px-2 text-base sm:h-8 sm:text-sm"
                   min={format(timeline.minimumStart, "yyyy-MM-dd")}
                   max={format(timeline.maximumStart, "yyyy-MM-dd")}
                   value={format(timeline.rangeStart, "yyyy-MM-dd")}
@@ -385,10 +395,10 @@ function RouteComponent() {
             style={{ scrollPaddingLeft: `${scrollPaddingLeftRem}rem` }}
           >
             <div className="relative min-w-max touch-pan-x touch-pan-y">
-              <div className="sticky top-0 z-20 flex border-b border-border bg-background/95 backdrop-blur">
+              <div className="sticky top-0 z-20 flex border-b border-border bg-card/95 backdrop-blur">
                 {showTaskRail ? (
                   <div
-                    className="sticky left-0 z-30 shrink-0 border-r border-border bg-background px-2 py-2.5 sm:w-80 sm:px-4 sm:py-3"
+                    className="sticky left-0 z-30 shrink-0 border-r border-border bg-card px-2 py-2.5 sm:w-80 sm:px-4 sm:py-3"
                     style={{
                       width: isMobile ? `${taskColumnWidthRem}rem` : undefined,
                     }}
@@ -479,7 +489,7 @@ function RouteComponent() {
                         }}
                       >
                         {showTaskRail ? (
-                          <div className="sticky left-0 z-[11] h-full border-r border-border bg-background">
+                          <div className="sticky left-0 z-[11] h-full border-r border-border bg-card">
                             <button
                               type="button"
                               className="flex min-h-[44px] w-full min-w-0 flex-col items-start justify-center gap-0.5 px-2 py-2 text-left transition-colors hover:bg-muted sm:min-h-0 sm:px-3 sm:py-1.5"
@@ -514,7 +524,7 @@ function RouteComponent() {
                               task.scheduleStart > timeline.rangeEnd) && (
                               <button
                                 type="button"
-                                className="px-3 pb-2 text-xs text-primary underline"
+                                className="px-3 pb-2 text-xs text-link underline"
                                 onClick={() =>
                                   showDate(addDays(task.scheduleStart, -7))
                                 }
@@ -533,6 +543,7 @@ function RouteComponent() {
                         >
                           <GanttTaskBar
                             task={task}
+                            isFinal={finalStatuses.has(task.status)}
                             timeline={timeline}
                             pixelsPerDay={pixelsPerDay}
                             isMobile={isMobile}

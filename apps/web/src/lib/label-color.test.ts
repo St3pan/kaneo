@@ -4,9 +4,17 @@ import { FALLBACK_LABEL_COLOR, resolveLabelColor } from "./label-color";
 afterEach(() => vi.unstubAllGlobals());
 
 describe("resolveLabelColor", () => {
-  it("maps Kaneo's named label colors to their CSS variables", () => {
-    expect(resolveLabelColor("red")).toBe("var(--color-red-600)");
-    expect(resolveLabelColor("sky")).toBe("var(--color-sky-500)");
+  it("maps Kaneo's named label colors to the shared palette", () => {
+    expect(resolveLabelColor("red")).toBe("var(--palette-1)");
+    expect(resolveLabelColor("green")).toBe("var(--palette-2)");
+    expect(resolveLabelColor("yellow")).toBe("var(--palette-5)");
+    expect(resolveLabelColor("blue")).toBe("var(--palette-3)");
+    expect(resolveLabelColor("sky")).toBe("var(--label-sky)");
+  });
+
+  it("keeps the two legacy greys apart", () => {
+    expect(resolveLabelColor("gray")).toBe("var(--palette-4)");
+    expect(resolveLabelColor("dark-gray")).toBe("var(--palette-10)");
   });
 
   it("preserves custom hex colors imported from external systems", () => {

@@ -3,9 +3,11 @@ import { type JSX, useLayoutEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/cn";
 import { formatDate, formatDateShort } from "@/lib/format";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import {
   type CalendarTask,
-  getCalendarTaskStatusClass,
+  calendarAgendaToneClass,
 } from "./calendar-task-bar";
 import { buildMonthAgenda } from "./month-agenda-model";
 
@@ -13,6 +15,7 @@ type MonthAgendaProps = {
   tasks: CalendarTask[];
   visibleMonth: Date;
   projectSlug?: string;
+  finalStatuses?: ReadonlySet<string>;
   onOpenTask: (taskId: string) => void;
 };
 
@@ -22,6 +25,7 @@ export default function MonthAgenda({
   tasks,
   visibleMonth,
   projectSlug,
+  finalStatuses,
   onOpenTask,
 }: MonthAgendaProps): JSX.Element {
   const { t } = useTranslation();
@@ -64,7 +68,7 @@ export default function MonthAgenda({
           >
             <h3
               className={cn(
-                "sticky top-0 z-10 flex items-baseline gap-2 bg-background/95 px-4 pt-3 pb-1.5 text-xs font-medium text-muted-foreground backdrop-blur",
+                "sticky top-0 z-10 flex items-baseline gap-2 bg-card/95 px-4 pt-3 pb-1.5 text-xs font-medium text-muted-foreground backdrop-blur",
                 isCurrentDay && "text-foreground",
               )}
             >
@@ -94,9 +98,15 @@ export default function MonthAgenda({
                         range,
                       })}
                       data-task-status={task.status}
+                      style={toneStyle(
+                        getStatusTone(
+                          task.status,
+                          finalStatuses?.has(task.status),
+                        ),
+                      )}
                       className={cn(
                         "flex min-h-11 w-full flex-col justify-center gap-0.5 rounded-md border px-3 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                        getCalendarTaskStatusClass(task.status),
+                        calendarAgendaToneClass,
                       )}
                     >
                       <span className="text-sm font-medium text-foreground">

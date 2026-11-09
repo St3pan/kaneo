@@ -36,6 +36,8 @@ import {
 import { type CSSProperties, type ReactNode, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { ProjectColorBar } from "@/components/common/project-color-bar";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import { ProjectProgress } from "@/components/project-progress";
 import {
   Collapsible,
@@ -59,7 +61,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import icons from "@/constants/project-icons";
 import useDeleteProject from "@/hooks/mutations/project/use-delete-project";
 import useReorderProjects from "@/hooks/mutations/project/use-reorder-projects";
 import useGetProjects from "@/hooks/queries/project/use-get-projects";
@@ -238,7 +239,7 @@ export function NavProjects() {
           </CollapsibleTrigger>
           {canCreate && (
             <SidebarGroupAction
-              className="top-2 right-2 text-sidebar-foreground/70"
+              className="top-2 right-2 rounded-full bg-create text-create-foreground ring-3 ring-create-tint hover:bg-create-hover hover:text-create-foreground [&>svg:not([class*='size-'])]:size-3.5"
               title={t("navigation:projectList.addProject")}
               onClick={() => setIsCreateProjectModalOpen(true)}
             >
@@ -267,16 +268,13 @@ export function NavProjects() {
                     strategy={verticalListSortingStrategy}
                   >
                     {projects?.map((project) => {
-                      const ProjectIcon =
-                        icons[project.icon as keyof typeof icons] ||
-                        icons.Layout;
-
                       return (
                         <SortableProjectItem
                           key={project.id}
                           id={project.id}
                           canReorder={canReorder}
                         >
+                          <ProjectColorBar projectId={project.id} />
                           <SidebarMenuButton
                             isActive={isCurrentProject(project.id)}
                             size="default"
@@ -284,7 +282,11 @@ export function NavProjects() {
                             onClick={() => handleProjectClick(project)}
                             {...boardHoverPrefetch(project.id)}
                           >
-                            <ProjectIcon aria-hidden="true" />
+                            <ProjectIconTile
+                              projectId={project.id}
+                              icon={project.icon}
+                              className="size-4.5 rounded-[4px] [&>svg]:size-3!"
+                            />
                             <span className="min-w-0 flex-1 truncate">
                               {project.name}
                             </span>

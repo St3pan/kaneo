@@ -14,7 +14,7 @@ export function CheckboxMark({
       className={cn(
         "inline-flex size-3.5 shrink-0 items-center justify-center rounded-[4px] border",
         checked
-          ? "border-foreground bg-foreground text-background"
+          ? "border-primary bg-primary text-primary-foreground"
           : "border-muted-foreground/60",
         className,
       )}

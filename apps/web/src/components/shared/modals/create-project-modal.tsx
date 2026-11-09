@@ -218,7 +218,7 @@ function CreateProjectModal({ open, onClose }: CreateProjectModalProps) {
                   onChange={(e) => setSlug(e.target.value)}
                   placeholder="PRO"
                   maxLength={8}
-                  className="w-20 h-8 text-center font-semibold text-base sm:text-sm bg-background border-border rounded-lg transition-colors duration-150"
+                  className="w-20 h-8 text-center font-semibold text-base sm:text-sm bg-card border-border rounded-lg transition-colors duration-150"
                   required
                 />
               </div>
@@ -256,8 +256,9 @@ function CreateProjectModal({ open, onClose }: CreateProjectModalProps) {
               type="submit"
               disabled={!name.trim() || !slug.trim()}
               loading={isSubmitting}
+              variant="create"
               size="sm"
-              className="bg-primary hover:bg-primary/90  disabled:opacity-50"
+              className="disabled:opacity-50"
             >
               {t("common:modals.createProject.createButton")}
             </Button>

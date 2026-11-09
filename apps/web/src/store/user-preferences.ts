@@ -158,7 +158,7 @@ export const useUserPreferencesStore = create<UserPreferencesStore>()(
       weekStartsOn: 0,
       setWeekStartsOn: (weekStartsOn) => set({ weekStartsOn }),
 
-      priorityIconStyle: "marks",
+      priorityIconStyle: "classic",
       setPriorityIconStyle: (priorityIconStyle) => set({ priorityIconStyle }),
     }),
     {

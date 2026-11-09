@@ -74,7 +74,10 @@ export function UserAvatar() {
         >
           <Avatar className="h-8 w-8">
             <AvatarImage src={user.image ?? ""} alt={user.name || ""} />
-            <AvatarFallback className="text-xs font-medium border border-border/30">
+            <AvatarFallback
+              colorSeed={user.id}
+              className="text-xs font-medium border border-border/30"
+            >
               {initials}
             </AvatarFallback>
           </Avatar>
@@ -85,7 +88,10 @@ export function UserAvatar() {
           <div className="flex items-center gap-2 text-left text-sm">
             <Avatar className="h-7 w-7 rounded-full">
               <AvatarImage src={user.image ?? ""} alt={user.name || ""} />
-              <AvatarFallback className="rounded-full border border-border/30">
+              <AvatarFallback
+                colorSeed={user.id}
+                className="rounded-full border border-border/30"
+              >
                 {initials}
               </AvatarFallback>
             </Avatar>

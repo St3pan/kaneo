@@ -398,7 +398,7 @@ function ListView({
       onDragCancel={handleDragCancel}
       modifiers={[snapCenterToCursor]}
     >
-      <div className="w-full h-full overflow-auto bg-muted/20">
+      <div className="w-full h-full overflow-auto">
         {relationsFailed && (
           // Without relations every task renders as a top-level row, which
           // reads exactly like a project with no subtasks; this says it isn't.
@@ -416,7 +416,10 @@ function ListView({
             </Button>
           </div>
         )}
-        <div aria-busy={relationsLoading} className="divide-y divide-border/50">
+        <div
+          aria-busy={relationsLoading}
+          className="divide-y divide-border/50 bg-card"
+        >
           {project.columns.map((column) => (
             <ListColumnSection
               key={column.id}

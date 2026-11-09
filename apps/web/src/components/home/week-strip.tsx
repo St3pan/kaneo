@@ -53,7 +53,7 @@ export function WeekStrip({ tasks, workspaceId }: WeekStripProps) {
                     {t("workspace:myWork.due.today")}
                   </span>
                   {day.tasks.length > 0 && (
-                    <span className="flex size-4.5 items-center justify-center rounded-full bg-foreground font-semibold text-[11px] text-background tabular-nums">
+                    <span className="flex size-4.5 items-center justify-center rounded-full bg-primary font-semibold text-[11px] text-primary-foreground tabular-nums">
                       {day.tasks.length}
                     </span>
                   )}
@@ -85,7 +85,7 @@ export function WeekStrip({ tasks, workspaceId }: WeekStripProps) {
                     day.isPast
                       ? "bg-destructive/8 hover:bg-destructive/12"
                       : day.isToday
-                        ? "border border-border bg-background hover:bg-accent/50"
+                        ? "border border-border bg-card hover:bg-accent/50"
                         : "bg-muted/70 hover:bg-muted",
                   )}
                 >

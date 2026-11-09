@@ -138,7 +138,7 @@ function SearchComponent() {
                           });
                         }
                       }}
-                      className="w-full flex items-center gap-2.5 px-3 py-3 sm:gap-3 sm:px-4 rounded-lg border border-border bg-background hover:bg-accent/60 transition-colors text-left"
+                      className="w-full flex items-center gap-2.5 px-3 py-3 sm:gap-3 sm:px-4 rounded-lg border border-border bg-card hover:bg-accent/60 transition-colors text-left"
                     >
                       <div className="flex-shrink-0 first:[&_svg]:h-4 first:[&_svg]:w-4">
                         {getPriorityIcon(result.priority ?? "")}

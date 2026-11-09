@@ -25,7 +25,7 @@ export function PausedLinksList({
   const nextCursor = data.pausedNextCursor;
 
   return (
-    <div className="space-y-2 rounded-lg border border-border bg-background px-3 py-2">
+    <div className="space-y-2 rounded-lg border border-border bg-card px-3 py-2">
       <p className="py-1 text-xs text-muted-foreground">
         {t("settings:syncRules.pausedHint")}
       </p>

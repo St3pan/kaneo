@@ -59,7 +59,7 @@ export function CalendarFeedSettings({ projectId }: { projectId: string }) {
   const newFeedButton = (
     <Button
       type="button"
-      variant="outline"
+      variant="create"
       size="sm"
       onClick={() => setCreateOpen(true)}
     >

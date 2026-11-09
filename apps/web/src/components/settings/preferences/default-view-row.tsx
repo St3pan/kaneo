@@ -22,7 +22,7 @@ export function DefaultViewRow() {
         }}
         size="sm"
         aria-label={t("settings:preferencesPage.defaultView")}
-        className="w-full rounded-lg border border-input bg-background p-0.5 sm:w-48 dark:bg-input/32"
+        className="w-full rounded-lg border border-input bg-card p-0.5 sm:w-48 dark:bg-input-fill/32"
       >
         <ToggleGroupItem
           value="board"

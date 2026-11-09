@@ -58,6 +58,15 @@ function RouteComponent() {
   );
 
   const allScheduledTasks = useMemo(() => toScheduledTasks(project), [project]);
+  const finalStatuses = useMemo(
+    () =>
+      new Set(
+        project?.columns
+          .filter((column) => column.isFinal)
+          .map((column) => column.id),
+      ),
+    [project],
+  );
   const scheduledTasks = useMemo(
     () => toScheduledTasks(view.filters.filteredProject),
     [view.filters.filteredProject],
@@ -137,7 +146,7 @@ function RouteComponent() {
             : undefined
         }
       />
-      <div className="flex h-full min-h-0 flex-col bg-background">
+      <div className="flex h-full min-h-0 flex-col bg-card">
         <CalendarToolbar
           visibleMonth={visibleMonth}
           onPreviousMonth={handlePreviousMonth}
@@ -180,6 +189,7 @@ function RouteComponent() {
               tasks={scheduledTasks}
               visibleMonth={visibleMonth}
               projectSlug={project?.slug}
+              finalStatuses={finalStatuses}
               onOpenTask={handleOpenTask}
             />
           )
@@ -190,6 +200,7 @@ function RouteComponent() {
             visibleMonth={visibleMonth}
             maxLanes={MAX_LANES_DESKTOP}
             projectSlug={project?.slug}
+            finalStatuses={finalStatuses}
             onOpenTask={handleOpenTask}
           />
         )}

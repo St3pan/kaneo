@@ -14,7 +14,7 @@ export function ImportSourceLogoTile({
   return (
     <span
       className={cn(
-        "flex shrink-0 items-center justify-center border border-border bg-background",
+        "flex shrink-0 items-center justify-center border border-border bg-card",
         size === "sm" ? "size-8 rounded-lg" : "size-10 rounded-xl",
       )}
     >

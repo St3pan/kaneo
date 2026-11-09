@@ -28,7 +28,10 @@ export function ActivityFeedItem({
           src={activity.userImage ?? activity.externalUserAvatar ?? ""}
           alt=""
         />
-        <AvatarFallback className="border border-border/30 font-medium text-[10px]">
+        <AvatarFallback
+          colorSeed={activity.userId ?? actorName}
+          className="border border-border/30 font-medium text-[10px]"
+        >
           {getInitials(actorName)}
         </AvatarFallback>
       </Avatar>

@@ -29,7 +29,7 @@ export function BillingIntervalToggle({
             className={cn(
               "rounded-[0.3rem] px-3 py-1 font-medium transition-colors",
               value === interval
-                ? "bg-background text-foreground shadow-sm"
+                ? "bg-card text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground",
             )}
           >

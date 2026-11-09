@@ -16,7 +16,7 @@ export function WebhookSecretField({
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="flex h-8 min-w-0 flex-1 items-center gap-2 rounded-lg border border-input bg-background ps-2.5 pe-1 dark:bg-input/32">
+    <div className="flex h-8 min-w-0 flex-1 items-center gap-2 rounded-lg border border-input bg-card ps-2.5 pe-1 dark:bg-input-fill/32">
       <span
         aria-labelledby={labelledBy}
         className="min-w-0 flex-1 truncate font-mono text-xs"

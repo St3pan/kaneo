@@ -11,6 +11,8 @@ import { cn } from "@/lib/cn";
 import { getColumnIcon } from "@/lib/column";
 import { EASE_OUT } from "@/lib/motion";
 import type { SubtaskRow } from "@/lib/subtask-tree";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import type { ProjectWithTasks } from "@/types/project";
 import TaskRow from "./task-row";
 
@@ -71,7 +73,10 @@ const ListColumnSection = memo(function ListColumnSection({
         showDropIndicator && "border-l-4 border-l-ring bg-accent/35",
       )}
     >
-      <div className="flex items-center justify-between py-2 px-4 bg-muted/60 border-b border-border/50">
+      <div
+        style={toneStyle(getStatusTone(column.id, column.isFinal))}
+        className="flex items-center justify-between py-2 px-4 bg-muted/60 border-b border-border/50 shadow-[inset_3px_0_0_var(--tone)]"
+      >
         <button
           type="button"
           onClick={() => {
@@ -102,7 +107,7 @@ const ListColumnSection = memo(function ListColumnSection({
           <button
             type="button"
             onClick={() => onAddTask(column.id)}
-            className="touch-hitbox relative p-1 hover:bg-accent rounded text-muted-foreground hover:text-foreground transition-colors"
+            className="touch-hitbox relative flex size-5 items-center justify-center rounded-full bg-create text-create-foreground ring-3 ring-create-tint transition-colors hover:bg-create-hover"
             title={t("tasks:listView.addTask")}
             aria-label={t("tasks:listView.addTask")}
           >

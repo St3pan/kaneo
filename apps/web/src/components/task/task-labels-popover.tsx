@@ -8,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import labelColors from "@/constants/label-colors";
 import useAttachLabelToTask from "@/hooks/mutations/label/use-attach-label-to-task";
 import useCreateLabel from "@/hooks/mutations/label/use-create-label";
 import useDetachLabelFromTask from "@/hooks/mutations/label/use-detach-label-from-task";
@@ -18,22 +19,6 @@ import { getTaskLabelOptions } from "@/lib/get-task-label-options";
 import { resolveLabelColor } from "@/lib/label-color";
 import { toast } from "@/lib/toast";
 import type Task from "@/types/task";
-
-const labelColors = [
-  { value: "gray", key: "stone", color: "var(--color-stone-500)" },
-  { value: "dark-gray", key: "slate", color: "var(--color-slate-500)" },
-  { value: "purple", key: "lavender", color: "var(--color-violet-500)" },
-  { value: "teal", key: "sage", color: "var(--color-emerald-600)" },
-  { value: "green", key: "forest", color: "var(--color-green-600)" },
-  { value: "yellow", key: "amber", color: "var(--color-amber-600)" },
-  { value: "orange", key: "terracotta", color: "var(--color-orange-600)" },
-  { value: "pink", key: "rose", color: "var(--color-rose-600)" },
-  { value: "red", key: "crimson", color: "var(--color-red-600)" },
-  { value: "blue", key: "ocean", color: "var(--color-blue-600)" },
-  { value: "sky", key: "sky", color: "var(--color-sky-500)" },
-  { value: "cyan", key: "lagoon", color: "var(--color-cyan-600)" },
-  { value: "fuchsia", key: "orchid", color: "var(--color-fuchsia-600)" },
-];
 
 const CREATE_LABEL = ":create";
 

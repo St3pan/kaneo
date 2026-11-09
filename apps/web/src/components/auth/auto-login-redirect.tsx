@@ -30,7 +30,7 @@ export function AutoLoginRedirect({
     >
       <div
         role="status"
-        className="flex h-9 items-center gap-2.5 rounded-lg border border-input px-3.5 text-foreground text-sm dark:bg-input/32"
+        className="flex h-9 items-center gap-2.5 rounded-lg border border-input px-3.5 text-foreground text-sm dark:bg-input-fill/32"
       >
         <Spinner
           role="presentation"

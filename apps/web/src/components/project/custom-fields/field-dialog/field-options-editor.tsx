@@ -27,7 +27,7 @@ export function FieldOptionsEditor({
     <div
       role="group"
       aria-labelledby={labelledBy}
-      className="divide-y divide-border overflow-hidden rounded-lg border border-input bg-background dark:bg-input/32"
+      className="divide-y divide-border overflow-hidden rounded-lg border border-input bg-card dark:bg-input-fill/32"
     >
       <SortableList ids={options} onMove={onMove}>
         {options.map((option) => (

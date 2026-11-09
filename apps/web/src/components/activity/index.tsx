@@ -126,7 +126,10 @@ function UserHoverName({
               src={user.user.image ?? ""}
               alt={user.user.name || ""}
             />
-            <AvatarFallback className="bg-muted text-xs font-medium">
+            <AvatarFallback
+              colorSeed={user.user.id}
+              className="text-xs font-medium"
+            >
               {getInitials(user.user.name)}
             </AvatarFallback>
           </Avatar>
@@ -154,7 +157,10 @@ function ActorAvatar({
   return (
     <Avatar className="size-4.5">
       <AvatarImage src={user?.user?.image ?? ""} alt={fallbackName} />
-      <AvatarFallback className="bg-muted font-semibold text-[8px]">
+      <AvatarFallback
+        colorSeed={user?.user?.id ?? fallbackName}
+        className="font-semibold text-[8px]"
+      >
         {getInitials(fallbackName)}
       </AvatarFallback>
     </Avatar>

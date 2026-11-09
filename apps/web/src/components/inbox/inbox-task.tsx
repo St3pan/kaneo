@@ -12,7 +12,7 @@ import useGetActivitiesByTaskId from "@/hooks/queries/activity/use-get-activitie
 import { useGetColumns } from "@/hooks/queries/column/use-get-columns";
 import useGetTask from "@/hooks/queries/task/use-get-task";
 import { useWorkspacePermission } from "@/hooks/use-workspace-permission";
-import { getColumnIcon } from "@/lib/column";
+import { StatusBadge } from "@/components/common/status-badge";
 import { getPriorityLabel, getStatusDisplayLabel } from "@/lib/i18n/domain";
 import { getPriorityIcon } from "@/lib/priority";
 import { useShortcut } from "@/lib/shortcuts/use-shortcut";
@@ -137,12 +137,12 @@ export function InboxTask({ taskId, workspaceId }: InboxTaskProps) {
           <div className="flex items-center gap-1.5">
             <dt className="sr-only">{t("tasks:status.label")}</dt>
             <dd className="flex items-center gap-1.5">
-              {getColumnIcon(
-                task.status,
-                statusColumn?.isFinal,
-                statusColumn?.icon,
-              )}
-              {getStatusDisplayLabel(task.status, statusColumn?.name)}
+              <StatusBadge
+                status={task.status}
+                label={getStatusDisplayLabel(task.status, statusColumn?.name)}
+                isFinal={statusColumn?.isFinal}
+                icon={statusColumn?.icon}
+              />
             </dd>
           </div>
           <div className="flex items-center gap-1.5">

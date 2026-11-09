@@ -26,7 +26,7 @@ export function BacklogToolbarActions({
         <TooltipTrigger
           render={
             <Button
-              variant="ghost"
+              variant="create"
               size="icon-sm"
               aria-label={planLabel}
               onClick={onPlan}

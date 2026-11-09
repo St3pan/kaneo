@@ -157,7 +157,10 @@ export default function CommentCard({
               <div className="flex cursor-pointer items-center gap-2">
                 <Avatar className="size-5">
                   <AvatarImage src={user?.image ?? ""} alt={user?.name || ""} />
-                  <AvatarFallback className="bg-muted font-semibold text-[9px]">
+                  <AvatarFallback
+                    colorSeed={user?.id ?? user?.name}
+                    className="font-semibold text-[9px]"
+                  >
                     {getInitials(user?.name)}
                   </AvatarFallback>
                 </Avatar>
@@ -170,7 +173,10 @@ export default function CommentCard({
               <div className="flex items-center gap-3">
                 <Avatar className="h-10 w-10">
                   <AvatarImage src={user?.image ?? ""} alt={user?.name || ""} />
-                  <AvatarFallback className="bg-muted text-xs font-medium">
+                  <AvatarFallback
+                    colorSeed={user?.id ?? user?.name}
+                    className="text-xs font-medium"
+                  >
                     {getInitials(user?.name)}
                   </AvatarFallback>
                 </Avatar>

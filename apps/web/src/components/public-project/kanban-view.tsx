@@ -1,4 +1,6 @@
 import { getColumnIcon } from "@/lib/column";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import type { ProjectWithTasks } from "@/types/project";
 import type Task from "@/types/task";
 import { PublicTaskCard } from "./task-card";
@@ -23,7 +25,10 @@ export function PublicKanbanView({
               key={column.id}
               className="h-full flex-1 min-w-80 max-w-96 flex-shrink-0"
             >
-              <div className="flex flex-col h-full w-full min-h-0 backdrop-blur-xs rounded-lg bg-sidebar border border-border/50">
+              <div
+                style={toneStyle(getStatusTone(column.id, column.isFinal))}
+                className="flex flex-col h-full w-full min-h-0 rounded-lg border border-border border-t-3 border-t-(--tone) bg-board-column"
+              >
                 <div className="p-2 shrink-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">

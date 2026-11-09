@@ -60,10 +60,11 @@ export function AssignedTaskRow({
       <span className="hidden w-28 shrink-0 truncate text-muted-foreground text-xs sm:block">
         {task.projectName}
       </span>
-      <DueDateText
-        dueDate={task.dueDate}
-        className="shrink-0 text-right sm:w-20"
-      />
+      {task.dueDate && (
+        <span className="shrink-0 text-right sm:w-20">
+          <DueDateText dueDate={task.dueDate} />
+        </span>
+      )}
     </Link>
   );
 }

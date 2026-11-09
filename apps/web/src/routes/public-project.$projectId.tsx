@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, List } from "lucide-react";
-import { createElement, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import PageTitle from "@/components/page-title";
 import { CopyUrlButton } from "@/components/public-project/copy-url-button";
 import { ErrorView } from "@/components/public-project/error-view";
@@ -13,7 +14,6 @@ import { PublicProjectDescription } from "@/components/public-project/project-de
 import { PublicTaskDetailModal } from "@/components/public-project/task-detail-modal";
 import { ThemeToggle } from "@/components/public-project/theme-toggle";
 import { Button } from "@/components/ui/button";
-import icons from "@/constants/project-icons";
 import useGetPublicProject from "@/hooks/queries/project/use-get-public-project";
 import type Task from "@/types/task";
 
@@ -79,18 +79,15 @@ function RouteComponent() {
     <>
       <PageTitle title={t("publicProject:pageTitle")} />
       <div className="min-h-svh bg-background flex flex-col w-full">
-        <header className="border-b border-border sticky top-0 z-10 bg-background">
+        <header className="border-b border-border sticky top-0 z-10 bg-card">
           <div className="px-6 py-2.5">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 flex-1 min-w-0">
-                <div className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center shrink-0">
-                  {createElement(
-                    icons[project.icon as keyof typeof icons] || Layout,
-                    {
-                      className: "w-5 h-5 text-muted-foreground",
-                    },
-                  )}
-                </div>
+                <ProjectIconTile
+                  projectId={project.id}
+                  icon={project.icon}
+                  className="size-9 rounded-lg [&>svg]:size-5!"
+                />
                 <div className="flex flex-col gap-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <h1 className="text-lg font-semibold text-foreground truncate">

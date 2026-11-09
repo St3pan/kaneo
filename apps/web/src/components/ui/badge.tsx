@@ -22,13 +22,14 @@ const badgeVariants = cva(
       },
       variant: {
         default:
-          "bg-primary text-primary-foreground [button&,a&]:hover:bg-primary/90",
-        destructive: "bg-destructive  [button&,a&]:hover:bg-destructive/90",
+          "bg-primary text-primary-foreground [button&,a&]:hover:bg-primary-hover",
+        destructive:
+          "bg-destructive text-destructive-solid-foreground [button&,a&]:hover:bg-destructive-hover",
         error:
           "bg-destructive/8 text-destructive-foreground dark:bg-destructive/16",
         info: "bg-info/8 text-info-foreground dark:bg-info/16",
         outline:
-          "border-input bg-background text-foreground dark:bg-input/32 [button&,a&]:hover:bg-accent/50 dark:[button&,a&]:hover:bg-input/48",
+          "border-input bg-card text-foreground dark:bg-input-fill/32 [button&,a&]:hover:bg-accent/50 dark:[button&,a&]:hover:bg-input-fill/48",
         secondary:
           "bg-secondary text-secondary-foreground [button&,a&]:hover:bg-secondary/90",
         success: "bg-success/8 text-success-foreground dark:bg-success/16",

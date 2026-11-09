@@ -57,7 +57,7 @@ export function PlankaConnectForm({
               onChange({ plankaSignIn: next });
             }
           }}
-          className="h-9 w-full rounded-lg border border-input bg-background p-0.5 sm:h-8 dark:bg-input/32"
+          className="h-9 w-full rounded-lg border border-input bg-card p-0.5 sm:h-8 dark:bg-input-fill/32"
         >
           <ToggleGroupItem
             value="apiKey"

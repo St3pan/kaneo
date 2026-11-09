@@ -23,7 +23,7 @@ export function ReadyStep({
 
   return (
     <div className="flex flex-col gap-6">
-      <ul className="flex flex-col rounded-xl border border-border dark:bg-input/16">
+      <ul className="flex flex-col rounded-xl border border-border dark:bg-input-fill/16">
         <ReadySummaryRow
           label={t("auth:onboarding.ready.workspace")}
           value={workspaceName}

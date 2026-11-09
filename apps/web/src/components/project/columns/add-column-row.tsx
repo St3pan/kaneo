@@ -65,7 +65,7 @@ export function AddColumnRow({ onCreate }: AddColumnRowProps) {
       >
         <span aria-hidden="true" className="w-3.5 shrink-0" />
         <span className="flex size-7 shrink-0 items-center justify-center">
-          <Plus aria-hidden="true" className="size-3.5" />
+          <Plus aria-hidden="true" className="size-3.5 text-create" />
         </span>
         {t("settings:columnEditor.addColumn")}
       </button>
@@ -95,7 +95,7 @@ export function AddColumnRow({ onCreate }: AddColumnRowProps) {
         onKeyDown={handleKeyDown}
         placeholder={t("settings:columnEditor.newColumnPlaceholder")}
         aria-label={t("settings:columnEditor.newColumnPlaceholder")}
-        className="-ml-2 h-7.5 min-w-0 flex-1 rounded-md border border-input bg-background px-2 text-sm outline-none placeholder:text-muted-foreground/72 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/24 dark:bg-input/32"
+        className="-ml-2 h-7.5 min-w-0 flex-1 rounded-md border border-input bg-card px-2 text-sm outline-none placeholder:text-muted-foreground/72 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/24 dark:bg-input-fill/32"
       />
       <span aria-hidden="true" className="w-13 shrink-0" />
       <span aria-hidden="true" className="w-7 shrink-0" />

@@ -28,7 +28,7 @@ export function assigneeMenuOptions(
       icon: (
         <Avatar className="size-4">
           <AvatarImage src={member.image ?? ""} alt="" />
-          <AvatarFallback className="text-[8px]">
+          <AvatarFallback colorSeed={member.id} className="text-[8px]">
             {getInitials(member.name)}
           </AvatarFallback>
         </Avatar>

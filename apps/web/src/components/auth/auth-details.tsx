@@ -9,7 +9,7 @@ export type AuthDetail = {
 
 export function AuthDetails({ rows }: { rows: AuthDetail[] }) {
   return (
-    <dl className="flex flex-col rounded-xl border border-border dark:bg-input/16">
+    <dl className="flex flex-col rounded-xl border border-border dark:bg-input-fill/16">
       {rows.map((row) => (
         <div
           key={row.label}

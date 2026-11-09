@@ -14,7 +14,7 @@ export function SettingsIconTile({
     <div
       aria-hidden="true"
       className={cn(
-        "flex size-8 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground [&_svg]:size-4",
+        "flex size-8 shrink-0 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground [&_svg]:size-4",
         className,
       )}
     >

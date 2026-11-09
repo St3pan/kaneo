@@ -39,6 +39,7 @@ export function OwnershipSection({
       <SettingsCard>
         {currentOwner ? (
           <CurrentOwnerRow
+            userId={currentOwner.userId}
             name={currentOwner.user.name}
             email={currentOwner.user.email}
             image={currentOwner.user.image}

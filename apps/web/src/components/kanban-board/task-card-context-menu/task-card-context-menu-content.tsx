@@ -265,7 +265,10 @@ export default function TaskCardContextMenuContent({
               >
                 <Avatar className="h-6 w-6">
                   <AvatarImage src={user.image ?? ""} alt={user.name || ""} />
-                  <AvatarFallback className="text-xs font-medium border border-border/30">
+                  <AvatarFallback
+                    colorSeed={user.value}
+                    className="text-xs font-medium border border-border/30"
+                  >
                     {getInitials(user.name)}
                   </AvatarFallback>
                 </Avatar>

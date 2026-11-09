@@ -47,7 +47,7 @@ export function LabelsSettings() {
   const newLabelButton = canCreate ? (
     <Button
       type="button"
-      variant="outline"
+      variant="create"
       size="sm"
       onClick={() => openLabelDialog(null)}
     >

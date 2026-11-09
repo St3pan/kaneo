@@ -157,8 +157,7 @@ const BacklogTaskRow = memo(function BacklogTaskRow({
       className={cn(
         "border-b border-border/50 transition-colors duration-150",
         isDragging && "opacity-50",
-        isTaskSelected &&
-          "bg-accent/60 shadow-sm ring-1 ring-inset ring-ring/30",
+        isTaskSelected && "bg-primary-tint ring-1 ring-inset ring-ring/30",
         isTaskFocused && "ring-1 ring-board-card-focus ring-inset",
       )}
     >
@@ -169,7 +168,7 @@ const BacklogTaskRow = memo(function BacklogTaskRow({
             onClick={handleClick}
             className={cn(
               "group relative flex h-10 cursor-pointer items-center gap-3 px-3.5 outline-none transition-colors",
-              isTaskSelected ? "bg-accent/45" : "hover:bg-accent/60",
+              isTaskSelected ? "bg-primary-tint" : "hover:bg-accent",
             )}
             data-task-id={task.id}
             data-shortcut-surface

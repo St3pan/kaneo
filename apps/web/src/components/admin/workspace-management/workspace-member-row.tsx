@@ -46,7 +46,7 @@ function WorkspaceMemberRow({
       className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-4"
     >
       <div className="flex min-w-0 flex-1 items-center gap-3">
-        <DirectoryAvatar name={name} image={member.image} />
+        <DirectoryAvatar id={member.userId} name={name} image={member.image} />
         <div className="min-w-0">
           <span className="block truncate text-sm font-medium">{name}</span>
           <span className="block truncate text-xs text-muted-foreground">

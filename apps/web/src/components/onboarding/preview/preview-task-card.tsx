@@ -13,7 +13,7 @@ export function PreviewTaskCard({ ticket, title }: PreviewTaskCardProps) {
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="flex flex-col gap-2.5 rounded-lg border border-border bg-background p-3 shadow-xs/5"
+      className="flex flex-col gap-2.5 rounded-lg border border-border bg-card p-3 shadow-xs/5"
     >
       <span className="font-mono text-[11px] text-muted-foreground">
         {ticket}

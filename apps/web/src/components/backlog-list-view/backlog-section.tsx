@@ -9,6 +9,8 @@ import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/cn";
 import { EASE_OUT } from "@/lib/motion";
+import { getStatusTone } from "@/lib/tone/status-tone";
+import { toneStyle } from "@/lib/tone/tone";
 import type Task from "@/types/task";
 import BacklogTaskRow from "./backlog-task-row";
 
@@ -48,7 +50,10 @@ const BacklogSection = memo(function BacklogSection({
         showDropIndicator && "border-l-4 border-l-ring bg-accent/35",
       )}
     >
-      <div className="flex items-center justify-between py-2 px-4 bg-muted/60 border-b border-border/50">
+      <div
+        style={toneStyle(getStatusTone(sectionId))}
+        className="flex items-center justify-between py-2 px-4 bg-muted/60 border-b border-border/50 shadow-[inset_3px_0_0_var(--tone)]"
+      >
         <button
           type="button"
           onClick={() => {
@@ -65,7 +70,7 @@ const BacklogSection = memo(function BacklogSection({
             )}
           />
           <div className="flex items-center gap-2 h-4">
-            <IconComponent className="w-4 h-4 flex-shrink-0 text-muted-foreground" />
+            <IconComponent className="w-4 h-4 flex-shrink-0 text-(--tone)" />
             <div className="flex items-center gap-1">
               <span className="mt-1 mr-1">
                 {t(`tasks:backlog.sections.${sectionId}`, {
@@ -84,7 +89,7 @@ const BacklogSection = memo(function BacklogSection({
             <button
               type="button"
               onClick={onAddTask}
-              className="touch-hitbox relative p-1 hover:bg-accent rounded text-muted-foreground hover:text-foreground transition-colors"
+              className="touch-hitbox relative flex size-5 items-center justify-center rounded-full bg-create text-create-foreground ring-3 ring-create-tint transition-colors hover:bg-create-hover"
               title={t("tasks:backlog.addTask")}
               aria-label={t("tasks:backlog.addTask")}
             >

@@ -30,9 +30,9 @@ export function DueDateText({ dueDate, className }: DueDateTextProps) {
       className={cn(
         "text-xs tabular-nums",
         days < 0
-          ? "font-medium text-destructive-foreground"
-          : days === 0
-            ? "font-medium text-foreground"
+          ? "rounded-[4px] bg-due-overdue px-1.5 py-0.5 font-medium text-due-overdue-foreground"
+          : days <= 1
+            ? "rounded-[4px] bg-due-soon px-1.5 py-0.5 font-medium text-due-soon-foreground"
             : "text-muted-foreground",
         className,
       )}

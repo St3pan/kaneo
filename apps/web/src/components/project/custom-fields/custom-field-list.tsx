@@ -75,7 +75,7 @@ export function CustomFieldList({
             canEdit ? (
               <Button
                 type="button"
-                variant="outline"
+                variant="create"
                 size="sm"
                 onClick={onCreate}
               >

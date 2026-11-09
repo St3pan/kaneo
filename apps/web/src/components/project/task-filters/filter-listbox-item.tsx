@@ -31,7 +31,7 @@ export function FilterListboxItem({
           className={cn(
             "inline-flex size-3.5 shrink-0 items-center justify-center rounded-[4px] border",
             entry.checked
-              ? "border-foreground bg-foreground text-background"
+              ? "border-primary bg-primary text-primary-foreground"
               : "border-muted-foreground/50 opacity-0 group-data-highlighted/entry:opacity-100",
           )}
         >
@@ -50,7 +50,7 @@ export function FilterListboxItem({
         </span>
       )}
       {!!entry.badge && (
-        <span className="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-foreground px-1 font-semibold text-[10px] text-background tabular-nums">
+        <span className="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-primary px-1 font-semibold text-[10px] text-primary-foreground tabular-nums">
           {entry.badge}
         </span>
       )}

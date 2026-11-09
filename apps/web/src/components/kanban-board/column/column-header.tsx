@@ -3,6 +3,7 @@ import { Archive, Plus, ArchiveIcon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import CreateTaskModal from "@/components/shared/modals/create-task-modal";
+import { Button } from "@/components/ui/button";
 import { useUpdateTask } from "@/hooks/mutations/task/use-update-task";
 import { useWorkspacePermission } from "@/hooks/use-workspace-permission";
 import { getColumnIcon } from "@/lib/column";
@@ -65,7 +66,7 @@ export function ColumnHeader({
         <span className="truncate font-medium text-[13px] text-board-title leading-5">
           {column.name}
         </span>
-        <span className="text-board-id text-xs tabular-nums">
+        <span className="rounded-md bg-card px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
           {column.tasks.length}
         </span>
       </div>
@@ -84,14 +85,16 @@ export function ColumnHeader({
           </button>
         )}
         {canCreate && (
-          <button
-            type="button"
+          <Button
+            variant="create"
+            size="icon-xs"
             onClick={() => setIsTaskModalOpen(true)}
-            className="flex size-6 cursor-pointer items-center justify-center rounded-md text-chip-icon transition-colors hover:bg-chip-hover hover:text-board-title"
+            className="ms-1.5 size-6 sm:size-5.5"
             title={t("tasks:kanban.addTask")}
+            aria-label={t("tasks:kanban.addTask")}
           >
-            <Plus className="size-3.5" />
-          </button>
+            <Plus strokeWidth={2.5} />
+          </Button>
         )}
       </div>
 

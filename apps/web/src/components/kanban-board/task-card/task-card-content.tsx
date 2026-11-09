@@ -174,7 +174,6 @@ function TaskCardContent({
                     name={assignee?.user?.name ?? task.assigneeName}
                     image={assignee?.user?.image}
                     avatarFallbackClassName={cn(
-                      isTaskSelected && "bg-avatar-selected",
                       taskIsCompleted &&
                         "bg-avatar-done text-avatar-foreground-done",
                     )}

@@ -34,15 +34,15 @@ export function getDueDateStatus(
   );
 
   if (diffInDays < 0) return "overdue";
-  if (diffInDays <= 3) return "due-soon";
+  if (diffInDays <= 1) return "due-soon";
   return "far-future";
 }
 
 export const dueDateStatusColors = {
-  overdue: "bg-destructive/10 text-destructive-foreground",
-  "due-soon": "bg-warning/10 text-warning-foreground",
-  "far-future": "bg-muted/50 text-muted-foreground",
-  "no-due-date": "bg-muted/50 text-muted-foreground",
+  overdue: "bg-due-overdue font-medium text-due-overdue-foreground",
+  "due-soon": "bg-due-soon font-medium text-due-soon-foreground",
+  "far-future": "text-muted-foreground",
+  "no-due-date": "text-muted-foreground",
 } as const;
 
 export const dueDateStatusIcons = {

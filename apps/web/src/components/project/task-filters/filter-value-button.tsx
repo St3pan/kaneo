@@ -35,7 +35,7 @@ export function FilterValueButton({ subject }: { subject: FilterSubject }) {
             {icons.map((option) => (
               <span
                 key={option.value}
-                className="inline-flex size-4 items-center justify-center rounded-full bg-background [&>svg]:size-3.5"
+                className="inline-flex size-4 items-center justify-center rounded-full bg-card [&>svg]:size-3.5"
               >
                 {option.icon}
               </span>

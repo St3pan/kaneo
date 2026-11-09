@@ -75,7 +75,7 @@ export function ResumeSyncDialog({
                 {(["local", "remote"] as const).map((side) => (
                   <div
                     key={side}
-                    className="min-w-0 space-y-3 rounded-lg border border-border bg-background p-3"
+                    className="min-w-0 space-y-3 rounded-lg border border-border bg-card p-3"
                   >
                     <p className="text-xs font-medium text-muted-foreground">
                       {side === "local"

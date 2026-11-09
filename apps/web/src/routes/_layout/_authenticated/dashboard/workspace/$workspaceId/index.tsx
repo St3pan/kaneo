@@ -71,6 +71,7 @@ function RouteComponent() {
               </div>
               {canCreateTasks() && (
                 <Button
+                  variant="create"
                   size="sm"
                   onClick={() =>
                     needsProjectFirst

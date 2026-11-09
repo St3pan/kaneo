@@ -33,7 +33,7 @@ export function FieldOptionRow({
       ref={rowRef}
       style={rowStyle}
       className={cn(
-        "group/row flex h-9 items-center gap-2.5 bg-background px-2.5 dark:bg-transparent",
+        "group/row flex h-9 items-center gap-2.5 bg-card px-2.5 dark:bg-transparent",
         isDragging && "relative z-10 bg-popover shadow-sm dark:bg-popover",
       )}
     >

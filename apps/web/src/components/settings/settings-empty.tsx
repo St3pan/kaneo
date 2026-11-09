@@ -17,7 +17,7 @@ export function SettingsEmpty({
     <div className="flex flex-col items-center gap-3 px-6 py-9 text-center">
       <div
         aria-hidden="true"
-        className="flex size-10 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground [&_svg]:size-[18px]"
+        className="flex size-10 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground [&_svg]:size-[18px]"
       >
         {icon}
       </div>

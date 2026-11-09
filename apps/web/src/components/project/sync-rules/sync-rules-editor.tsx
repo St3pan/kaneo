@@ -48,7 +48,7 @@ export function SyncRulesEditor({
   );
   const impact = dirty ? preview.data : saved;
   return (
-    <div className="space-y-5 rounded-lg border border-border bg-background p-3">
+    <div className="space-y-5 rounded-lg border border-border bg-card p-3">
       <p className="text-xs text-muted-foreground">
         {t("settings:syncRules.sharedHint")}
       </p>

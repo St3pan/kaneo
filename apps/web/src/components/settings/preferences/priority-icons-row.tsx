@@ -32,7 +32,7 @@ export function PriorityIconsRow() {
         }}
         size="sm"
         aria-label={t("settings:preferencesPage.priorityIcons")}
-        className="w-full rounded-lg border border-input bg-background p-0.5 sm:w-auto dark:bg-input/32"
+        className="w-full rounded-lg border border-input bg-card p-0.5 sm:w-auto dark:bg-input-fill/32"
       >
         <ToggleGroupItem value="marks" className="h-7 flex-1 gap-1.5 sm:h-6">
           {t("settings:preferencesPage.priorityIconsMarks")}

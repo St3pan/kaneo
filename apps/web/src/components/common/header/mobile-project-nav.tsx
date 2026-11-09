@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import icons from "@/constants/project-icons";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import useGetProjects from "@/hooks/queries/project/use-get-projects";
 import { cn } from "@/lib/cn";
 
@@ -30,8 +30,6 @@ export default function MobileProjectNav({
   const [open, setOpen] = useState(false);
   const { data: projects = [] } = useGetProjects({ workspaceId });
   const currentProject = projects?.find((project) => project.id === projectId);
-  const CurrentIcon =
-    icons[currentProject?.icon as keyof typeof icons] || icons.Layout;
 
   const select = (action: () => void) => () => {
     setOpen(false);
@@ -50,7 +48,11 @@ export default function MobileProjectNav({
           />
         }
       >
-        <CurrentIcon className="size-4 shrink-0" />
+        <ProjectIconTile
+          projectId={projectId}
+          icon={currentProject?.icon}
+          className="size-4.5 rounded-[4px] [&>svg]:size-3!"
+        />
         <span className="truncate font-medium text-sm">
           {projectName ?? currentProject?.name}
         </span>
@@ -64,8 +66,6 @@ export default function MobileProjectNav({
             </p>
             <div className="max-h-56 space-y-0.5 overflow-y-auto">
               {(projects ?? []).map((project) => {
-                const Icon =
-                  icons[project.icon as keyof typeof icons] || icons.Layout;
                 const isCurrentProject = project.id === projectId;
 
                 return (
@@ -80,7 +80,11 @@ export default function MobileProjectNav({
                         : "text-muted-foreground hover:bg-accent hover:text-foreground",
                     )}
                   >
-                    <Icon className="size-4 shrink-0" />
+                    <ProjectIconTile
+                      projectId={project.id}
+                      icon={project.icon}
+                      className="size-4.5 rounded-[4px] [&>svg]:size-3!"
+                    />
                     <span className="flex-1 truncate">{project.name}</span>
                     {isCurrentProject && <Check className="size-4" />}
                   </button>

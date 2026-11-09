@@ -111,7 +111,7 @@ export function UserDirectoryRow({
   return (
     <div role="row" className="flex items-center gap-4 px-4 py-3">
       <div role="cell" className="flex min-w-0 flex-1 items-center gap-3">
-        <DirectoryAvatar name={user.name} image={user.image} />
+        <DirectoryAvatar id={user.id} name={user.name} image={user.image} />
         <div className="min-w-0">
           <div className="flex min-w-0 items-center gap-1.5">
             <span className="truncate text-sm font-medium">{user.name}</span>

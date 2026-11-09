@@ -32,7 +32,7 @@ export function ApiKeysSettings() {
   const newKeyButton = (
     <Button
       type="button"
-      variant="outline"
+      variant="create"
       size="sm"
       onClick={() => setCreateOpen(true)}
     >

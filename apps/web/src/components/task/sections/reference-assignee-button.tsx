@@ -28,7 +28,12 @@ export function ReferenceAssigneeButton({
         }
         className="relative flex shrink-0 rounded-full outline-none before:absolute before:-inset-1 focus-visible:ring-2 focus-visible:ring-ring"
       >
-        <AssigneeAvatar name={name} image={image} assigned={assigned} />
+        <AssigneeAvatar
+          userId={tasks[0]?.userId}
+          name={name}
+          image={image}
+          assigned={assigned}
+        />
       </button>
     </SubtaskAssigneePopover>
   );

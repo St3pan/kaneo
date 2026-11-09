@@ -43,6 +43,8 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 import { Progress } from "@/components/ui/progress";
+import { ProjectColorBar } from "@/components/common/project-color-bar";
+import { ProjectIconTile } from "@/components/common/project-icon-tile";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
@@ -52,7 +54,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import icons from "@/constants/project-icons";
 import useReorderProjects from "@/hooks/mutations/project/use-reorder-projects";
 import useGetProjects from "@/hooks/queries/project/use-get-projects";
 import { useCanImport } from "@/hooks/use-can-import";
@@ -231,7 +232,7 @@ function RouteComponent() {
           headerActions={
             canCreate ? (
               <Button
-                variant="outline"
+                variant="create"
                 size="xs"
                 onClick={handleCreateProject}
                 className="gap-1"
@@ -295,7 +296,7 @@ function RouteComponent() {
           headerActions={
             canCreate ? (
               <Button
-                variant="outline"
+                variant="create"
                 size="xs"
                 onClick={handleCreateProject}
                 className="gap-1"
@@ -321,7 +322,7 @@ function RouteComponent() {
             </EmptyHeader>
             <EmptyContent className="flex-row flex-wrap justify-center">
               {canCreate && (
-                <Button onClick={handleCreateProject}>
+                <Button variant="create" onClick={handleCreateProject}>
                   <Plus />
                   {t("workspace:projects.createProject")}
                 </Button>
@@ -355,7 +356,7 @@ function RouteComponent() {
         headerActions={
           canCreate ? (
             <Button
-              variant="outline"
+              variant="create"
               size="xs"
               onClick={handleCreateProject}
               className="gap-1"
@@ -400,9 +401,6 @@ function RouteComponent() {
                 {orderedProjects?.map((project) => {
                   if (!project?.id || !project.statistics) return null;
 
-                  const IconComponent =
-                    icons[project.icon as keyof typeof icons] || icons.Layout;
-
                   const getStatusText = () => {
                     if (project.statistics.totalTasks === 0)
                       return t("workspace:projects.projectStatus.notStarted");
@@ -425,9 +423,17 @@ function RouteComponent() {
                       canReorder={canReorder}
                       onClick={() => handleProjectClick(project.id)}
                     >
-                      <TableCell className="py-3">
+                      <TableCell className="relative py-3">
+                        <ProjectColorBar
+                          projectId={project.id}
+                          className="inset-y-2"
+                        />
                         <div className="flex items-center gap-3">
-                          <IconComponent className="w-5 h-5 text-muted-foreground" />
+                          <ProjectIconTile
+                            projectId={project.id}
+                            icon={project.icon}
+                            className="size-6 rounded-md [&>svg]:size-4!"
+                          />
                           <span className="font-medium">{project.name}</span>
                         </div>
                       </TableCell>

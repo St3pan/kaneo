@@ -31,11 +31,11 @@ export function LabelColorSwatches({
             title={color.label}
             onClick={() => onChange(color.value)}
             className={cn(
-              "flex size-6 cursor-pointer items-center justify-center rounded-full text-white outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-popover",
+              "flex size-6 cursor-pointer items-center justify-center rounded-full outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-popover",
               selected &&
                 "ring-2 ring-foreground/70 ring-offset-2 ring-offset-popover",
             )}
-            style={{ backgroundColor: color.color }}
+            style={{ backgroundColor: color.color, color: color.foreground }}
           >
             {selected ? (
               <CheckIcon

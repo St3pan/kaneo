@@ -28,6 +28,11 @@ const subjects = {
     reset: "設定新的 {{instanceName}} 密碼",
     verification: "確認你的 {{instanceName}} 電子郵件地址",
   },
+  uk: {
+    setup: "Налаштуйте обліковий запис {{instanceName}}",
+    reset: "Виберіть новий пароль {{instanceName}}",
+    verification: "Підтвердьте адресу електронної пошти для {{instanceName}}",
+  },
 } satisfies Record<string, Subjects>;
 
 export function accountEmailSubject(

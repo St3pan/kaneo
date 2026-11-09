@@ -14,4 +14,17 @@ describe("EmailVerificationEmail", () => {
     expect(html).toContain("メールアドレスの確認");
     expect(html).toContain("verify-email?token=x");
   });
+
+  it("asks for confirmation in Ukrainian", async () => {
+    const html = await render(
+      createElement(EmailVerificationEmail, {
+        verificationLink: "https://kaneo.example/api/auth/verify-email?token=x",
+        locale: "uk-UA",
+        email: "olena@example.com",
+        requestedBy: "sign-up",
+      }),
+    );
+    expect(html).toContain("Підтвердьте адресу електронної пошти");
+    expect(html).toContain("бо хтось створив обліковий запис");
+  });
 });

@@ -34,4 +34,21 @@ describe("AccountPasswordEmail", () => {
     expect(html).toContain("Neues Passwort festlegen");
     expect(html).toContain("1 Stunde");
   });
+
+  it("writes the setup email in Ukrainian", async () => {
+    const html = await render(
+      createElement(AccountPasswordEmail, {
+        purpose: "setup",
+        passwordLink: link,
+        userName: "Олена",
+        locale: "uk-UA",
+        email: "olena@example.com",
+        instance: "kaneo.example",
+      }),
+    );
+    expect(html).toContain('lang="uk"');
+    expect(html).toContain("Налаштуйте обліковий запис Kaneo");
+    expect(html).toContain("Задати пароль");
+    expect(html).toContain("на запит адміністрації kaneo.example");
+  });
 });

@@ -28,6 +28,8 @@ export const signUpReason: Record<EmailLocale, Reason> = {
     `このアドレスで ${instance} のアカウントが作成されたため、${email} に送信しました。`,
   "zh-tw": (email, instance = "Kaneo") =>
     `因為有人使用這個地址在 ${instance} 建立了帳號，所以寄送至 ${email}。`,
+  uk: (email, instance = "Kaneo") =>
+    `Надіслано на ${email}, бо хтось створив обліковий запис у ${instance} з цією адресою.`,
 };
 
 export const passwordResetReason: Record<EmailLocale, Reason> = {
@@ -56,4 +58,6 @@ export const administratorReason: Record<EmailLocale, Reason> = {
     `${instance} の管理者がこのメールの送信をリクエストしたため、${email} に送信しました。`,
   "zh-tw": (email, instance = "Kaneo") =>
     `因為 ${instance} 的管理員要求 Kaneo 寄送這封郵件，所以寄送至 ${email}。`,
+  uk: (email, instance = "Kaneo") =>
+    `Надіслано на ${email} на запит адміністрації ${instance}.`,
 };

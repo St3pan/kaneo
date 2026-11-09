@@ -25,4 +25,15 @@ describe("MagicLinkEmail", () => {
     expect(html).toContain("登入 Kaneo");
     expect(html).toContain("Kaneo 安全性通知");
   });
+
+  it("renders Ukrainian copy for a Ukrainian locale", async () => {
+    const html = await render(
+      createElement(MagicLinkEmail, {
+        magicLink: "https://kaneo.example/auth",
+        locale: "uk-UA",
+      }),
+    );
+    expect(html).toContain("Увійти в Kaneo");
+    expect(html).toContain("Повідомлення безпеки Kaneo");
+  });
 });

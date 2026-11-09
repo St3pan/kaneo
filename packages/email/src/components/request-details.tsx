@@ -68,6 +68,14 @@ const messages: Record<EmailLocale, Messages> = {
     device: "裝置",
     browserOn: (browser, os) => `${os} 上的 ${browser}`,
   },
+  uk: {
+    title: "Деталі запиту",
+    account: "Обліковий запис",
+    instance: "Сервер",
+    requested: "Час запиту",
+    device: "Пристрій",
+    browserOn: (browser, os) => `${browser} на ${os}`,
+  },
 };
 
 function describeDevice(copy: Messages, device?: RequestDevice) {

@@ -16,6 +16,12 @@ import {
   safeOutboundError,
   sendOutboundRequest,
 } from "../utils/outbound-request";
+import { withDefaultLocale } from "../utils/default-locale";
+import {
+  type DeliveryContent,
+  type DeliveryCopy,
+  getDeliveryCopy,
+} from "./delivery-copy";
 import { resolveEmailTask } from "./resolve-email-task";
 import { decryptSecret } from "./secrets";
 
@@ -27,11 +33,6 @@ type ResolvedNotificationContext = {
   taskId: string | null;
   taskTitle: string | null;
   taskUrl: string | null;
-};
-
-type DeliveryContent = {
-  title: string;
-  body: string;
 };
 
 function getClientUrl() {
@@ -58,25 +59,22 @@ function getNumberValue(
   return typeof value === "number" ? value : null;
 }
 
-function formatLeadTime(minutes: number | null) {
-  if (!minutes) return "soon";
-  if (minutes % 1440 === 0) {
-    const days = minutes / 1440;
-    return `in ${days} ${days === 1 ? "day" : "days"}`;
-  }
-  if (minutes % 60 === 0) {
-    const hours = minutes / 60;
-    return `in ${hours} ${hours === 1 ? "hour" : "hours"}`;
-  }
-  return `in ${minutes} minutes`;
+function formatLeadTime(copy: DeliveryCopy, minutes: number | null) {
+  if (!minutes) return copy.soon;
+  if (minutes % 1440 === 0) return copy.inDays(minutes / 1440);
+  if (minutes % 60 === 0) return copy.inHours(minutes / 60);
+  return copy.inMinutes(minutes);
 }
 
-function buildDeliveryContent(notification: {
-  type: string;
-  content: string | null;
-  title: string | null;
-  eventData: Record<string, unknown> | null;
-}): DeliveryContent {
+function buildDeliveryContent(
+  notification: {
+    type: string;
+    content: string | null;
+    title: string | null;
+    eventData: Record<string, unknown> | null;
+  },
+  locale?: string | null,
+): DeliveryContent {
   if (notification.title && notification.content) {
     return {
       title: notification.title,
@@ -84,113 +82,40 @@ function buildDeliveryContent(notification: {
     };
   }
 
+  const copy = getDeliveryCopy(locale);
+  const data = notification.eventData;
+  const taskTitle = getStringValue(data, "taskTitle");
+
   switch (notification.type) {
-    case "task_created": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      return {
-        title: "New task created",
-        body: taskTitle
-          ? `A new task was created: ${taskTitle}`
-          : "A new task was created in Kaneo.",
-      };
-    }
-    case "workspace_created": {
-      const workspaceName = getStringValue(
-        notification.eventData,
-        "workspaceName",
+    case "task_created":
+      return copy.taskCreated(taskTitle);
+    case "workspace_created":
+      return copy.workspaceCreated(getStringValue(data, "workspaceName"));
+    case "task_status_changed":
+      return copy.taskStatusChanged(
+        taskTitle,
+        getStringValue(data, "oldStatus"),
+        getStringValue(data, "newStatus"),
       );
-      return {
-        title: "Workspace created",
-        body: workspaceName
-          ? `Workspace created: ${workspaceName}`
-          : "A new workspace was created in Kaneo.",
-      };
-    }
-    case "task_status_changed": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      const oldStatus = getStringValue(notification.eventData, "oldStatus");
-      const newStatus = getStringValue(notification.eventData, "newStatus");
-      return {
-        title: "Task status changed",
-        body:
-          taskTitle && oldStatus && newStatus
-            ? `${taskTitle} moved from ${oldStatus} to ${newStatus}.`
-            : "A task status changed in Kaneo.",
-      };
-    }
-    case "task_assignee_changed": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      return {
-        title: "Task assigned to you",
-        body: taskTitle
-          ? `You were assigned to ${taskTitle}.`
-          : "A task was assigned to you in Kaneo.",
-      };
-    }
-    case "time_entry_created": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      return {
-        title: "Time entry created",
-        body: taskTitle
-          ? `A time entry was created for ${taskTitle}.`
-          : "A time entry was created in Kaneo.",
-      };
-    }
-    case "due_date_reminder": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      const label = formatLeadTime(
-        getNumberValue(notification.eventData, "leadTimeMinutes"),
+    case "task_assignee_changed":
+      return copy.taskAssigneeChanged(taskTitle);
+    case "time_entry_created":
+      return copy.timeEntryCreated(taskTitle);
+    case "due_date_reminder":
+      return copy.dueDateReminder(
+        taskTitle,
+        formatLeadTime(copy, getNumberValue(data, "leadTimeMinutes")),
       );
-      return {
-        title: "Task due soon",
-        body: taskTitle
-          ? `"${taskTitle}" is due ${label}.`
-          : `A task is due ${label}.`,
-      };
-    }
-    case "task_overdue": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      return {
-        title: "Task overdue",
-        body: taskTitle
-          ? `"${taskTitle}" is past its due date.`
-          : "A task is past its due date.",
-      };
-    }
-    case "task_mention": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      const mentionerName = getStringValue(
-        notification.eventData,
-        "mentionerName",
-      );
-      return {
-        title: mentionerName
-          ? `${mentionerName} mentioned you`
-          : "You were mentioned",
-        body: taskTitle
-          ? `You were mentioned in ${taskTitle}.`
-          : "You were mentioned in a Kaneo task.",
-      };
-    }
-    case "task_comment": {
-      const taskTitle = getStringValue(notification.eventData, "taskTitle");
-      const commenterName = getStringValue(
-        notification.eventData,
-        "commenterName",
-      );
-      return {
-        title: commenterName
-          ? `${commenterName} commented on your task`
-          : "New task comment",
-        body: taskTitle
-          ? `A new comment was added to ${taskTitle}.`
-          : "A new comment was added to a Kaneo task.",
-      };
-    }
+    case "task_overdue":
+      return copy.taskOverdue(taskTitle);
+    case "task_mention":
+      return copy.taskMention(taskTitle, getStringValue(data, "mentionerName"));
+    case "task_comment":
+      return copy.taskComment(taskTitle, getStringValue(data, "commenterName"));
     default:
       return {
-        title: notification.title ?? "New Kaneo notification",
-        body: notification.content ?? "You have a new notification in Kaneo.",
+        title: notification.title ?? copy.fallbackTitle,
+        body: notification.content ?? copy.fallbackBody,
       };
   }
 }
@@ -435,7 +360,7 @@ export async function deliverNotification(
     return;
   }
 
-  const content = buildDeliveryContent({
+  const deliverySource = {
     type: notification.type,
     title: notification.title ?? null,
     content: notification.content ?? null,
@@ -443,7 +368,8 @@ export async function deliverNotification(
       notification.eventData && typeof notification.eventData === "object"
         ? (notification.eventData as Record<string, unknown>)
         : null,
-  });
+  };
+  const content = buildDeliveryContent(deliverySource);
 
   const webhookPayload = {
     notification: {
@@ -484,16 +410,18 @@ export async function deliverNotification(
 
   if (decryptedPreference.emailEnabled && rule.emailEnabled && user.email) {
     const recipient = user.email;
+    const emailLocale = withDefaultLocale(user.locale);
+    const emailContent = buildDeliveryContent(deliverySource, emailLocale);
     deliveries.push(
       (async () => {
         const task = context.taskId
-          ? await resolveEmailTask(context.taskId)
+          ? await resolveEmailTask(context.taskId, emailLocale)
           : undefined;
-        await sendNotificationEmail(recipient, content.title, {
-          title: content.title,
-          message: content.body,
+        await sendNotificationEmail(recipient, emailContent.title, {
+          title: emailContent.title,
+          message: emailContent.body,
           actionUrl: context.taskUrl,
-          locale: user.locale ?? null,
+          locale: emailLocale,
           breadcrumb: context.projectName
             ? `${context.workspaceName} / ${context.projectName}`
             : context.workspaceName,

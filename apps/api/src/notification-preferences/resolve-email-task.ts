@@ -8,6 +8,7 @@ import {
   taskTable,
   userTable,
 } from "../database/schema";
+import { localizeColumnName } from "./delivery-copy";
 import {
   getInitials,
   resolveColumnIcon,
@@ -45,6 +46,7 @@ async function findColumn(task: {
 
 export async function resolveEmailTask(
   taskId: string,
+  locale?: string | null,
 ): Promise<NotificationEmailTask | undefined> {
   const [task] = await db
     .select({
@@ -109,7 +111,7 @@ export async function resolveEmailTask(
     assigneeInitials: getInitials(task.assigneeName),
     column: column
       ? {
-          name: column.name,
+          name: localizeColumnName(column.slug, column.name, locale),
           icon: resolveColumnIcon(column),
           count: columnCount?.value,
         }

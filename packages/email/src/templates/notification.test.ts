@@ -30,6 +30,30 @@ describe("NotificationEmail", () => {
     expect(html).toContain("有一則通知符合你的通知設定。");
   });
 
+  it("renders Ukrainian chrome for a Ukrainian locale", async () => {
+    const html = await render(
+      createElement(NotificationEmail, {
+        title: "Завдання призначено вам",
+        message: "Вас призначено на завдання «Звіт».",
+        actionUrl: "https://kaneo.example/task/1",
+        locale: "uk-UA",
+        task: {
+          ticket: "KAN-7",
+          title: "Звіт",
+          priority: "urgent",
+          dueDate: new Date("2026-10-14T00:00:00Z"),
+        },
+      }),
+    );
+    expect(html).toContain('lang="uk"');
+    expect(html).toContain("Відкрити завдання");
+    expect(html).toContain('alt="Терміновий пріоритет"');
+    expect(html).toContain("14 жовт.");
+    expect(html).toContain(
+      "Цей лист надіслано відповідно до ваших налаштувань сповіщень.",
+    );
+  });
+
   it("renders the task card with localized priority and due date", async () => {
     const html = await render(
       createElement(NotificationEmail, {

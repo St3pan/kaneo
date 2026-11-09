@@ -115,6 +115,7 @@ import {
   rememberCustomOAuthProfile,
   takeCustomOAuthProfile,
 } from "./utils/custom-oauth-sign-in";
+import { withDefaultLocale } from "./utils/default-locale";
 import { resolveFileSecret } from "./utils/file-secret";
 import { generateDemoName } from "./utils/generate-demo-name";
 import { getEmailRequestContext } from "./utils/email-request-context";
@@ -202,7 +203,7 @@ async function getUserLocale(email: string) {
     .where(eq(schema.userTable.email, email))
     .limit(1);
 
-  return user?.locale ?? null;
+  return withDefaultLocale(user?.locale);
 }
 
 function getLocaleKey(locale?: string | null) {
@@ -211,6 +212,7 @@ function getLocaleKey(locale?: string | null) {
   if (normalized?.startsWith("vi")) return "vi";
   if (normalized?.startsWith("ja")) return "ja";
   if (normalized === "zh-tw") return "zh-tw";
+  if (normalized?.startsWith("uk")) return "uk";
   return "en";
 }
 
@@ -271,6 +273,14 @@ function getAuthEmailCopy(locale?: string | null, instanceName = "Kaneo") {
       magicLinkSubject: `${instanceName} 登入連結`,
       otpSubject: (otp: string) => `你的 ${instanceName} 登入驗證碼：${otp}`,
       passwordResetSubject: `重設 ${instanceName} 密碼`,
+    };
+  }
+
+  if (localeKey === "uk") {
+    return {
+      magicLinkSubject: "Посилання для входу в Kaneo",
+      otpSubject: (otp: string) => `${otp} — ваш код для входу в Kaneo`,
+      passwordResetSubject: "Скидання пароля Kaneo",
     };
   }
 

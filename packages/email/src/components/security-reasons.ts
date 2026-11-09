@@ -13,6 +13,8 @@ export const signInReason: Record<EmailLocale, Reason> = {
     `${instance} へのサインインがリクエストされたため、${email} に送信しました。`,
   "zh-tw": (email, instance = "Kaneo") =>
     `因為有人要求登入 ${instance}，所以寄送至 ${email}。`,
+  uk: (email, instance = "Kaneo") =>
+    `Надіслано на ${email}, бо хтось хоче увійти в ${instance}.`,
 };
 
 export const signUpReason: Record<EmailLocale, Reason> = {
@@ -39,6 +41,8 @@ export const passwordResetReason: Record<EmailLocale, Reason> = {
     `${instance} でパスワードのリセットがリクエストされたため、${email} に送信しました。`,
   "zh-tw": (email, instance = "Kaneo") =>
     `因為有人要求在 ${instance} 重設密碼，所以寄送至 ${email}。`,
+  uk: (email, instance = "Kaneo") =>
+    `Надіслано на ${email}, бо хтось хоче скинути пароль у ${instance}.`,
 };
 
 export const administratorReason: Record<EmailLocale, Reason> = {

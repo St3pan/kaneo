@@ -1,4 +1,4 @@
-const supportedLocales = ["en", "de", "vi", "ja", "zh-tw"] as const;
+const supportedLocales = ["en", "de", "vi", "ja", "zh-tw", "uk"] as const;
 
 export type EmailLocale = (typeof supportedLocales)[number];
 
@@ -10,6 +10,7 @@ const htmlLangs: Record<EmailLocale, string> = {
   vi: "vi",
   ja: "ja",
   "zh-tw": "zh-TW",
+  uk: "uk",
 };
 
 export function resolveEmailLocale(locale?: string | null): EmailLocale {

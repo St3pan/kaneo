@@ -113,6 +113,20 @@ const messages = {
       low: "低優先",
     },
   },
+  uk: {
+    preview: "У вас нове сповіщення Kaneo",
+    subtitle: "Цей лист надіслано відповідно до ваших налаштувань сповіщень.",
+    footer: "Сповіщення Kaneo",
+    actionLabel: "Відкрити в Kaneo",
+    openTask: "Відкрити завдання",
+    manage: "Налаштувати сповіщення",
+    priority: {
+      urgent: "Терміновий пріоритет",
+      high: "Високий пріоритет",
+      medium: "Середній пріоритет",
+      low: "Низький пріоритет",
+    },
+  },
 } as const;
 
 const NotificationEmail = ({
